@@ -1,4 +1,2 @@
-AngularPresentation
-===================
+# AngularJS Presentation
 
-Angular Presentation
