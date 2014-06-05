@@ -7,10 +7,8 @@
 
   <meta name="description" content="An in-house AngularJS Prentation">
   <meta name="author" content="Carlos Justiniano">
-
   <meta name="apple-mobile-web-app-capable" content="yes"/>
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
   <link rel="stylesheet" href="css/reveal.min.css">
@@ -37,224 +35,350 @@
 <body>
 
 <div class="reveal">
-  <div class="slides">
+<div class="slides">
 
-    <!-- Title slide  -------------------------------------------------------------------->
-    <section data-transition="cube" data-transition-speed="medium">
-      <img style="border: 0; padding: 20px;" src="images/AngularJS-medium.png">
-      <!--<h2>AngularJS Presentation</h2>-->
-      <h4>An in-house AngularJS Presentation</h4>
-      <p>
-        <small>Presented by <a href="http://cjus.me">Carlos Justiniano</a> / <a href="http://twitter.com/cjus">@cjus</a>
-        </small>
-      </p>
-    </section>
+<!-- Title slide  -------------------------------------------------------------------->
+<section data-transition="cube" data-transition-speed="medium">
+  <img style="border: 0; padding: 20px;" src="images/AngularJS-medium.png">
+  <!--<h2>AngularJS Presentation</h2>-->
+  <h4>An in-house AngularJS Presentation</h4>
 
-    <!-- The changing web -------------------------------------------------------------------->
-    <!--data-background="images/DSC07942-201309.jpg"-->
-    <section data-transition="linear" data-transition-speed="medium">
-      <section data-transition="linear" data-transition-speed="medium">
-        <h2>The changing web</h2>
-        <ul>
-          <li>The advent of AJAX marked a web shift</li>
-          <li>Sites became more responsive</li>
-          <li>Front-ends relied less on backend servers</li>
-          <li>Application logic moved into the front-end</li>
-          <li>With rendering, logic and computation distributed to user machines, the backend could be more easily
-            scaled
-          </li>
-        </ul>
-        <!--<pre><code>-->
-        <!--&lt;!-- Title Slide --&gt;-->
-        <!--&lt;div class=&quot;slides&quot;&gt;-->
-        <!--&lt;section&gt;-->
-        <!--&lt;h2&gt;AngularJS Presentation&lt;/h2&gt;-->
-        <!--&lt;h4&gt;An in-house AngularJS Presentation&lt;/h4&gt;-->
-        <!--&lt;p&gt;-->
-        <!--&lt;small&gt;Created by &lt;a href=&quot;http://cjus.me&quot;&gt;Carlos Justiniano&lt;/a&gt; / &lt;a href=&quot;http://twitter.com/cjus&quot;&gt;@cjus&lt;/a&gt;-->
-        <!--&lt;/small&gt;-->
-        <!--&lt;/p&gt;-->
-        <!--&lt;/section&gt;-->
-        <!--</code></pre>-->
-      </section>
+  <p>
+    <small>Presented by <a href="http://cjus.me">Carlos Justiniano</a> / <a href="http://twitter.com/cjus">@cjus</a>
+    </small>
+  </p>
+</section>
 
-      <!-- Front-end Client Computing -------------------------------------------------------------------->
-      <section data-transition="linear" data-transition-speed="medium">
-        <h2>Front-end Client Computing</h2>
-        <ul>
-          <li>If you live long enough you see cycles repeat</li>
-          <li>This so-called modern approach has similarities with native desktop client software which communicates
-            with remote servers to pull or post data
-          </li>
-        </ul>
-      </section>
+<!-- The changing web -------------------------------------------------------------------->
+<!--data-background="images/DSC07942-201309.jpg"-->
+<section data-transition="linear" data-transition-speed="medium">
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>The changing web</h2>
+    <ul>
+      <li>The advent of AJAX marked a web shift</li>
+      <li>Sites became more responsive</li>
+      <li>Front-ends relied less on backend servers</li>
+      <li>Application logic moved into the front-end</li>
+      <li>With rendering, logic and computation distributed to user machines, the backend could be more easily
+        scaled
+      </li>
+    </ul>
+    <!--<pre><code>-->
+    <!--&lt;!-- Title Slide --&gt;-->
+    <!--&lt;div class=&quot;slides&quot;&gt;-->
+    <!--&lt;section&gt;-->
+    <!--&lt;h2&gt;AngularJS Presentation&lt;/h2&gt;-->
+    <!--&lt;h4&gt;An in-house AngularJS Presentation&lt;/h4&gt;-->
+    <!--&lt;p&gt;-->
+    <!--&lt;small&gt;Created by &lt;a href=&quot;http://cjus.me&quot;&gt;Carlos Justiniano&lt;/a&gt; / &lt;a href=&quot;http://twitter.com/cjus&quot;&gt;@cjus&lt;/a&gt;-->
+    <!--&lt;/small&gt;-->
+    <!--&lt;/p&gt;-->
+    <!--&lt;/section&gt;-->
+    <!--</code></pre>-->
+  </section>
 
-      <!-- Handling front-end complexity -------------------------------------------------------------------->
-      <section data-transition="linear" data-transition-speed="medium">
-        <h2>Handling front-end complexity</h2>
-        <ul>
-          <li>Developers find they need ways to handle the increased code in the front-end</li>
-          <li>So they consider how large applications are built using software libraries and frameworks</li>
-          <li>They begin developing open-source front-end web frameworks with names like: Backbone, Ember, Knockout and
-            Angular
-          </li>
-        </ul>
-      </section>
+  <!-- Front-end Client Computing -------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Front-end Client Computing</h2>
+    <ul>
+      <li>If you live long enough you see cycles repeat</li>
+      <li>This so-called modern approach has similarities with native desktop client software which communicates
+        with remote servers to pull or post data
+      </li>
+    </ul>
+  </section>
 
-      <!-- AngualrJS -------------------------------------------------------------------->
-      <section data-transition="linear" data-transition-speed="medium">
-        <h2>AngualrJS</h2>
-        <ul>
-          <li>Angular is loosely similar to many of the other frameworks that emerged to address the increasing demands
-            of modern web
-            development
-          </li>
-          <li>However, the similarities quickly give way to an amazing array of cleanly integrated and forward thinking
-            features
-          </li>
-          <li>We'll cover many of Angular's features in this presentation</li>
-        </ul>
-      </section>
-    </section>
+  <!-- Handling front-end complexity -------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Handling front-end complexity</h2>
+    <ul>
+      <li>Developers found they needed ways to handle the increased code in the front-end</li>
+      <li>So they consider how large applications are built using software libraries and frameworks</li>
+      <li>They begin developing open-source front-end web frameworks with names like: Backbone, Ember, Knockout and
+        Angular
+      </li>
+    </ul>
+  </section>
 
-    <!-- Why AngularJS? -------------------------------------------------------------------->
-    <section data-transition="linear" data-transition-speed="medium">
-      <h2>Why AngularJS?</h2>
-      <ul>
-        <li>Embraces the spirit and potential of HTML5</li>
-        <li>Offers features which are designed to work together</li>
-        <li>Simplifies building modern web application</li>
-      </ul>
-    </section>
+  <!-- AngualrJS -------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>AngualrJS</h2>
+    <ul>
+      <li>Angular is loosely similar to many of the other frameworks that emerged to address the increasing demands
+        of modern web
+        development
+      </li>
+      <li>However, the similarities quickly give way to an amazing array of cleanly integrated and forward thinking
+        features
+      </li>
+      <li>We'll cover many of Angular's features in this presentation</li>
+    </ul>
+  </section>
+</section>
 
-    <!-- How is Angular different from other frameworks? -------------------------------------------------------------------------->
-    <section data-transition="linear" data-transition-speed="medium">
-      <h2>How is Angular different from other frameworks?</h2>
-      <ul>
-        <li>A key differentiator is the extent to which Angular embraces HTML and modern web development best practices</li>
-        <li>You might think this makes Angular a large blotted framework, but as we'll see later this isn't the case
-        </li>
-      </ul>
-    </section>
+<!-- Why AngularJS -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Why AngularJS?</h2>
+    <ul>
+      <li>Embraces the spirit and potential of HTML5</li>
+      <li>Offers features which are designed to work together</li>
+      <li>Simplifies building modern web application</li>
+    </ul>
+  </section>
+  <!-- The original vision for Angular -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>The original vision</h2>
 
-    <!-- Who owns Angular? -------------------------------------------------------------------------->
-    <section data-transition="linear" data-transition-speed="medium">
-      <h2>Who owns Angular?</h2>
-      <p>Angular is an open source project which is supported by its founder, Miško Hevery, and a dedicated team at Google</p>
-      <p>As an open source project many of Angular's features are the result of contributions from the open source
-        community</p>
-    </section>
+    <p>Originally, Angular was designed as a way of enabling designers to use HTML markup to build application without
+      having to know how to program</p>
+  </section>
 
-    <!-- Where did Angular come from? -------------------------------------------------------------------------->
-    <section data-transition="linear" data-transition-speed="medium">
-      <section data-transition="linear" data-transition-speed="medium">
-        <h2>Where did Angular come from?</h2>
-        <ul>
-          <li>AngularJS was created in 2008 and 2009 by Miško Hevery and Adam Abrons</li>
-          <li>The two set out to build an online JSON storage service hosted at GetAngular.com</li>
-          <li>They eventually decided to scrap the business venture and release Angular as an open source project</li>
-          <li>Adam left the project, but Misko pressed on at this job at Google</li>
-          <li>Later, two other Google employees, Igor Minár and Vojta Jína helped to maintain the project</li>
-        </ul>
-      </section>
-      <!-- Why is it called Angular? -------------------------------------------------------------------------->
-      <section data-transition="linear" data-transition-speed="medium">
-        <h2>Why is it called Angular?</h2>
-        <p>People often ask why the name Angular? AngularJS focuses on HTML markup which contains angled brackets</p>
-        <p>So Angular was named after the HTML angled brackets.</p>
-      </section>
-    </section>
+  <!--  -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <p>The core belief is that the best way to build user interfaces is by using declarative programming</p>
+
+    <p>In this approach,
+      designers would be able to declare the behavior or components without knowing how the underlying behaviors were
+      implemented</p>
+  </section>
+</section>
+
+<!-- How is Angular different from other frameworks? -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+
+  <!-- key differences  -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>How is Angular different from other frameworks?</h2>
+    <ul>
+      <li>A key differentiator is the extent to which Angular embraces HTML and modern web development best practices
+      </li>
+      <li>You might think this makes Angular a large bloated framework, but as we'll see later this isn't the case
+      </li>
+    </ul>
+  </section>
+
+  <!-- Comparision with Backbone.js -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Comparison with Backbone.js</h2>
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <h3>Data-binding</h3>
+    <ul>
+      <li>Backbone and Angular approach data-binding differently</li>
+      <li>Unlike Backbone.js, Angular supports two way data binding</li>
+      <li>While Backbone requires boilerplate code to join models and views</li>
+    </ul>
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <h3>Communication</h3>
+    <ul>
+      <li>Backbone has good support for communicating with RESTful services while Angular provides two services
+        $resource and $http for communicating with remote servers
+      </li>
+    </ul>
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <h3>Templating</h3>
+    <ul>
+      <li>AngularJS features rich support for templating with support for HTML tags and expressions</li>
+      <li>Backbone relies on the underscore.js library for templating functionality</li>
+    </ul>
+  </section>
 
 
-    <!-- What can Angular do for you? -------------------------------------------------------------------->
-    <section data-transition="linear" data-transition-speed="medium">
-      <h2>What can Angular do for you?</h2>
-      <ul>
-        <li>Make it easier for you to reason about and build your web application - regardless of its size and
-          complexity
-        </li>
-        <li>Applications which embrace Angulars features are inheritenly more testable</li>
-      </ul>
-    </section>
+</section>
 
-    <!-- Who's using Angular? -------------------------------------------------------------------->
-    <section data-transition="linear" data-transition-speed="medium">
-      <h2>Who's using Angular?</h2>
-      <ul>
-        <li>First and foremost, Google uses Angular. In particular it was used on one of the most important Google
-          projects: Their Ad project using DoubleClick
-        </li>
-        <li>*** add more here ***</li>
-        <li>Startups love Angular</li>
-      </ul>
-    </section>
 
-    <!-- Key points -------------------------------------------------------------------------->
-    <section data-transition="linear" data-transition-speed="medium">
-      <section data-transition="linear" data-transition-speed="medium">
-        <h2>Key Concepts</h2>
-      </section>
-    </section>
+<!-- Where did Angular come from? -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Where did Angular come from?</h2>
+  </section>
 
-    <!-- Anglular and Friends -------------------------------------------------------------------------->
-    <section data-transition="linear" data-transition-speed="medium">
-      <h2>Anglular and Friends</h2>
-    </section>
+  <section data-transition="linear" data-transition-speed="medium">
+    <ul>
+      <li>AngularJS was created in 2008 and 2009 by Miško Hevery and Adam Abrons</li>
+      <li>The two set out to build an online JSON storage service hosted at GetAngular.com</li>
+      <li>They eventually decided to scrap the business venture and release Angular as an open source project</li>
+      <li>Adam left the project, but Misko pressed on while working at Google</li>
+    </ul>
+  </section>
 
-    <!-- Thinking about your application in terms of Angular -------------------------------------------------------------------->
-    <section data-transition="linear" data-transition-speed="medium">
-      <section data-transition="linear" data-transition-speed="medium">
-        <h2>Thinking about your application in terms of Angular</h2>
-      </section>
-      <section>
-        <h2>Breaking down your application</h2>
-        <ul>
-          <li>Separate your app into modules, models, controllers, directives, and services</li>
-        </ul>
-      </section>
-    </section>
+  <section data-transition="linear" data-transition-speed="medium">
+    <ul>
+      <li>At Google, Misko meet Brad Green who recruited him to work on the Google Feedback project</li>
+      <li>The project was difficult to work with and at one point Misko claimed he could rewrite the product in two
+        weeks using his personal side project, called Angular
+      </li>
+      <li>At the time Google Feedback had 17,000 lines of code developed over six months by three developers</li>
+      <li>Brad took Misko up on this offer and Misko didn't quite pull it off.</li>
+    </ul>
+  </section>
 
-    <!-- How large is Angular? -------------------------------------------------------------------------->
-    <section data-transition="linear" data-transition-speed="medium">
-      <section data-transition="linear" data-transition-speed="medium">
-        <h2>How large is Angular?</h2>
-        <p>You might think all of Angular's features result in a large and bloated framework.</p>
-      </section>
-      <section data-transition="linear" data-transition-speed="medium">
-        <h3>Actually, it weighs in at only...</h3>
-        <ul>
-          <li class="fragment">104K minified</li>
-          <li class="fragment">38K minified and gzipped</li>
-          <li class="fragment">To put this in context, jQuery 2.1.1 is 84K</li>
-        </ul>
-      </section>
-    </section>
+  <section data-transition="linear" data-transition-speed="medium">
+    <ul>
+      <li>Instead it took him three weeks to rewrite the product and reduce the codebase from 17,000
+        lines to just 1500 lines of code
+      </li>
+      <li>Based on this success, Brad recommended open sourcing the early Angular and recruiting other Googlers to join
+        the project
+      </li>
+      <li>Because the project was open sourced, developers outside of google took notice of the project and started
+        using and contributing to it
+      </li>
+    </ul>
+  </section>
 
-    <!-- Angular resources -------------------------------------------------------------------------->
-    <section data-transition="linear" data-transition-speed="medium">
-      <section data-transition="linear" data-transition-speed="medium">
-        <h2>Angular resources</h2>
-      </section>
-    </section>
+  <section data-transition="linear" data-transition-speed="medium">
+    <ul>
+      <li>One such person turned out to be another Googler, Marc Jacobs from the Google DoubleClick team</li>
+      <li>Marc was part of the Google acquisition of DoubleClick and was tasked to convert a DoubleClick app
+        from Microsoft .NET to the Google Platform
+      </li>
+      <li>Marc, impressed by Angular, devoted a two week sprint to trying the conversion using two parallel approaches:
+        1) Using AngularJS 2) Using Google's GWT
+      </li>
+      <li>Two days into the sprint he completed the project using Angular. Then he tried the same project using GWT and
+        after five days he gave up on it.
+      </li>
+    </ul>
+  </section>
 
-    <!-- Closing notes -------------------------------------------------------------------->
-    <section data-transition="zoom" data-transition-speed="medium">
-      <h2>Closing notes</h2>
-      <p>
-        This presentation was built using HTML, CSS, JavaScript and uses RevealJS and of course it's powered by
-        AngularJS.
-      </p>
-    </section>
+  <section data-transition="linear" data-transition-speed="medium">
+    <p>In October of 2013, the Angular team hosted an internal conference at Google in Mountain View, CA</p>
 
-    <!-- The changing web -------------------------------------------------------------------->
-    <!--<section>-->
-    <!--<iframe width="853" height="480" src="//www.youtube.com/embed/HCR7i5F5L8c" frameborder="0"-->
-    <!--allowfullscreen></iframe>-->
-    <!--</section>-->
-  </div>
-  <!-- slides -->
+    <p>They expected around 50 people would attend</p>
+
+    <p>When the conference started there were 197 attendees, presenting 101 project within Google</p>
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <ul>
+      <li>Angular was gaining traction inside and outside of Google</li>
+      <li>The Angular team started tracking how often developers searched for angular relative to other popular
+        frameworks
+      </li>
+    </ul>
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <p>At the 2014, first ever AngularJS conference, Brad and Misko announced that by mid-2013 the popularity of Angular
+      skyrocketed in comparison to other frameworks</p>
+    <img src="images/framework-trends.png">
+  </section>
+
+
+</section>
+
+
+<!-- What can Angular do for you? -------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>What can Angular do for you?</h2>
+  <ul>
+    <li>Make it easier for you to reason about and build your web application - regardless of its size and
+      complexity
+    </li>
+    <li>Applications which embrace Angular's features are inherently more testable</li>
+  </ul>
+</section>
+
+<!-- Key points -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Key Concepts</h2>
+  </section>
+</section>
+
+<!-- How does Angular work? -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>How does Angular work?</h2>
+
+  <p>TODO: Angular life cycle</p>
+</section>
+
+
+<!-- Anglular and Friends -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Anglular and Friends</h2>
+</section>
+
+<!-- Thinking about your application in terms of Angular -------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Thinking about your application in terms of Angular</h2>
+  </section>
+  <section>
+    <h2>Breaking down your application</h2>
+    <ul>
+      <li>Separate your app into modules, models, controllers, directives, and services</li>
+    </ul>
+  </section>
+</section>
+
+<!-- How large is Angular? -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>How large is Angular?</h2>
+
+    <p>You might think all of Angular's features result in a large and bloated framework.</p>
+  </section>
+  <section data-transition="linear" data-transition-speed="medium">
+    <h3>Actually, it weighs in at only...</h3>
+    <ul>
+      <li class="fragment">104K minified</li>
+      <li class="fragment">38K minified and gzipped</li>
+      <li class="fragment">To put this in context, jQuery 2.1.1 is 84K minified</li>
+    </ul>
+  </section>
+</section>
+
+<!-- A few Angular tidbits -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>A few Angular tidbits</h2>
+  </section>
+
+  <!-- Why is it called Angular? -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h3>Why is it called Angular?</h3>
+
+    <p>People often ask why the name Angular? AngularJS focuses on HTML markup which contains angled brackets</p>
+
+    <p>So Angular was named after the HTML angled brackets.</p>
+  </section>
+
+  <!-- Why is the logo a shield with a letter A on it? -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h3>Why is the logo a shield with a letter "A" on it?</h3>
+    <ul>
+      <li>The logo was chosen because the shield resembles the HTML5 logo which also uses a shield and Angular runs on
+        top of HTML5
+      </li>
+      <li>Also Misko liked the logo because the shield represents Angular shielding developers from the low-level
+        differences among web browsers
+      </li>
+    </ul>
+  </section>
+</section>
+
+<!-- Closing notes -------------------------------------------------------------------->
+<section data-transition="zoom" data-transition-speed="medium">
+  <h2>Oh, and one last thing...</h2>
+
+  <p class="fragment">
+    This presentation was built using HTML, CSS, JavaScript and uses RevealJS</p>
+
+  <p class="fragment">... and of course it's powered by AngularJS</p>
+</section>
+
 </div>
-<!--<script src="js/angular.min.js"></script>-->
+<!-- slides -->
+</div>
+<script src="js/angular.min.js"></script>
 
 <!-- reveal -->
 <script src="lib/js/head.min.js"></script>
