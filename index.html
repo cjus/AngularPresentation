@@ -47,6 +47,7 @@
     <small>Presented by <a href="http://cjus.me">Carlos Justiniano</a> / <a href="http://twitter.com/cjus">@cjus</a>
     </small>
   </p>
+
 </section>
 
 <!-- The changing web -------------------------------------------------------------------->
@@ -56,48 +57,31 @@
     <h2>The changing web</h2>
     <ul>
       <li>The advent of AJAX marked a web shift</li>
-      <li>Sites became more responsive</li>
-      <li>Front-ends relied less on backend servers</li>
-      <li>Application logic moved into the front-end</li>
-      <li>With rendering, logic and computation distributed to user machines, the backend could be more easily
-        scaled
-      </li>
+      <li>As a result sites became more responsive</li>
     </ul>
-    <!--<pre><code>-->
-    <!--&lt;!-- Title Slide --&gt;-->
-    <!--&lt;div class=&quot;slides&quot;&gt;-->
-    <!--&lt;section&gt;-->
-    <!--&lt;h2&gt;AngularJS Presentation&lt;/h2&gt;-->
-    <!--&lt;h4&gt;An in-house AngularJS Presentation&lt;/h4&gt;-->
-    <!--&lt;p&gt;-->
-    <!--&lt;small&gt;Created by &lt;a href=&quot;http://cjus.me&quot;&gt;Carlos Justiniano&lt;/a&gt; / &lt;a href=&quot;http://twitter.com/cjus&quot;&gt;@cjus&lt;/a&gt;-->
-    <!--&lt;/small&gt;-->
-    <!--&lt;/p&gt;-->
-    <!--&lt;/section&gt;-->
-    <!--</code></pre>-->
-  </section>
-
-  <!-- Front-end Client Computing -------------------------------------------------------------------->
-  <section data-transition="linear" data-transition-speed="medium">
-    <h2>Front-end Client Computing</h2>
-    <ul>
-      <li>If you live long enough you see cycles repeat</li>
-      <li>This so-called modern approach has similarities with native desktop client software which communicates
-        with remote servers to pull or post data
-      </li>
-    </ul>
+    <aside class="notes">
+      <p>AJAX marked an important shift in the development of the web.</p>
+      <p>Front-ends started relying less on backend servers as more application logic moved into the front-end.</p>
+      <p>This benifited the backend because rendering, logic and computation could be distributed to user machines allowing backends to more easily scale.
+      </p>
+    </aside>
   </section>
 
   <!-- Handling front-end complexity -------------------------------------------------------------------->
   <section data-transition="linear" data-transition-speed="medium">
     <h2>Handling front-end complexity</h2>
     <ul>
-      <li>Developers found they needed ways to handle the increased code in the front-end</li>
-      <li>So they consider how large applications are built using software libraries and frameworks</li>
-      <li>They begin developing open-source front-end web frameworks with names like: Backbone, Ember, Knockout and
+      <li>More code moves into the front-end</li>
+      <li>Developers face increased code complexity</li>
+      <li>Enter: open-source front-end web frameworks with names like: Backbone, Ember, Knockout and
         Angular
       </li>
     </ul>
+    <aside class="notes">
+      <p>As code moved into the front-end and front-ends became richer, developers found they needed ways to handle the
+      increased code in the front-end. So they consider how large applications are built using software libraries and frameworks.
+      They begin developing open-source front-end web frameworks with names like: Backbone, Ember, Knockout and Angular.</p>
+    </aside>
   </section>
 
   <!-- AngualrJS -------------------------------------------------------------------->
@@ -222,7 +206,6 @@
     <img src="images/framework-trends.png">
   </section>
 
-
 </section>
 
 
@@ -247,11 +230,11 @@
   <section data-transition="linear" data-transition-speed="medium">
     <h2>Embracing best practices</h2>
 
-    <p>The Angular team borrowed heavily from other successful frameworks</p>
+    <p>The Angular team borrowed heavily from other<br>successful frameworks</p>
 
     <p>Angular's claim to fame is that it implements popular idioms while embracing HTML and other web standards</p>
 
-    <p>Angular is more about embracing HTML than wrestling with it</p>
+    <p>Angular is more about embracing HTML<br>than wrestling with it</p>
   </section>
 
   <!-- Declarative programming -------------------------------------------------------------------------->
@@ -270,12 +253,15 @@
   <!-- HTML5 data attribute -------------------------------------------------------------------------->
   <section data-transition="linear" data-transition-speed="medium">
     <h3>HTML5 data attribute</h3>
+
     <p>The HTML5 data attribute allows designers to specify additional properties and behaviors for HTML5 elements.</p>
+
     <p>By querying the DOM, programmers can detect the presence of attributes to augment the element.</p>
   </section>
 
   <section data-transition="linear" data-transition-speed="medium">
-    <p>In this example, jQueryMobile uses the data-role and data-filter-placeholder attributes to determine how the list should be transformed</p>
+    <p>In this example, jQueryMobile uses the data-role and data-filter-placeholder attributes to determine how the list
+      should be transformed</p>
     <pre><code>
       &lt;ul data-role=&quot;listview&quot; data-filter=&quot;true&quot; data-filter-placeholder=&quot;Search fruits...&quot;
       data-inset=&quot;true&quot;&gt;
@@ -301,24 +287,26 @@
       !doctype html&gt;
       &lt;html ng-app&gt;
       &lt;head&gt;
-        &lt;script src=&quot;js/angular.min.js&quot;&gt;&lt;/script&gt;
+      &lt;script src=&quot;js/angular.min.js&quot;&gt;&lt;/script&gt;
       &lt;/head&gt;
       &lt;body&gt;
-        &lt;div&gt;
-        &lt;label&gt;Name:&lt;/label&gt;
-        &lt;input type=&quot;text&quot; ng-model=&quot;yourName&quot;
-                  placeholder=&quot;Enter a name here&quot;&gt;
-        &lt;hr&gt;
-        &lt;h1&gt;Hello {{yourName}}!&lt;/h1&gt;
-        &lt;/div&gt;
+      &lt;div&gt;
+      &lt;label&gt;Name:&lt;/label&gt;
+      &lt;input type=&quot;text&quot; ng-model=&quot;yourName&quot;
+      placeholder=&quot;Enter a name here&quot;&gt;
+      &lt;hr&gt;
+      &lt;h1&gt;Hello {{yourName}}!&lt;/h1&gt;
+      &lt;/div&gt;
       &lt;/body&gt;
       &lt;/html&gt;
     </code></pre>
-    <p>The ng-app and ng-model in the markup above are Angular directives used to convey important information to Angular concerning where the Angular application begins and which model an input is bound to</p>
+    <p>The ng-app and ng-model in the markup above are Angular directives used to convey important information to
+      Angular concerning where the Angular application begins and which model an input is bound to</p>
   </section>
 
   <section data-transition="linear" data-transition-speed="medium">
-    <h3>Let's see that works:</h3>
+    <h3>Let's see a live example:</h3>
+
     <div>
       <label>Name:</label>
       <input type="text" ng-model="yourName" placeholder="Enter a name here">
@@ -329,24 +317,25 @@
 
   <section data-transition="linear" data-transition-speed="medium">
     <p>Here is another example.</p>
+
     <p>With Angular we can define our own directives as I did below with the ph-panel directive:</p>
     <pre><code>
       &lt;div ph-panel title=&quot;This is the title&quot;&gt;
-        &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing
-        elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in
-        voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa
-        qui officia deserunt mollit anim id estlaborum.&lt;/p&gt;
+      &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing
+      elit, sed do eiusmod tempor incididunt ut labore et
+      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+      exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in
+      voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa
+      qui officia deserunt mollit anim id estlaborum.&lt;/p&gt;
       &lt;/div&gt;
     </code></pre>
   </section>
 
   <section data-transition="linear" data-transition-speed="medium">
     <p>Here is the live code using the ph-panel directive:</p>
-    <div ph-panel title="This is the title">
+    <div ph-panel title="Panel Title">
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
@@ -359,12 +348,71 @@
   <section data-transition="linear" data-transition-speed="medium">
     <h3>Data binding</h3>
     <ul>
-      <li>The earlier example with the input field and hello name illustrated another important concept in Angular, Data Binding.</li>
+      <li>The earlier example with the input field and hello name illustrated another important concept in Angular, Data
+        Binding
+      </li>
       <li>Angular allows you to bind data to your models and for that binding to be bi-directional</li>
-      <li>That's why I was able to type a name in an input field and see the text update in real-time</li>
+      <li>That's why we were able to type a name in an input field and see the text update in real-time</li>
     </ul>
   </section>
 
+
+
+  <!-- Scope -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Scope</h2>
+  </section>
+
+  <!-- Angular MVC -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Angular MVC</h2>
+    <p>Angular support application seperation of concerns using MVC and modules such as services and routers</p>
+    <ul>
+      <li>In Angular, the Model is implemented using the scope</li>
+      <li>Views are simply HTML templates with declarative annoations and data interpolations</li>
+      <li>And Controllers are just plain old JavaScript object</li>
+    </ul>
+  </section>
+
+</section>
+
+<!-- Angular best practices -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Angular best practices</h2>
+
+</section>
+
+
+<!-- Testing Angular -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Testing Angular</h2>
+    <ul>
+      <li>The Angular as its own test runner for Angular called Karma</li>
+      <li>Karma executes Jasmine BDD style tests</li>
+      <li>For end-to-end tests Angular has a tool called Protractor</li>
+    </ul>
+  </section>
+
+  <!-- Testing directives -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h3>Testing directives</h3>
+  </section>
+
+  <!-- Testing controllers -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h3>Testing controllers</h3>
+  </section>
+
+  <!-- Testing services -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h3>Testing services</h3>
+  </section>
+
+  <!-- End to end testing using Protractor -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h3>End to end testing using Protractor</h3>
+  </section>
 
 </section>
 
@@ -379,7 +427,18 @@
 
 <!-- Anglular and Friends -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
-  <h2>Anglular and Friends</h2>
+  <section>
+    <h2>Angular and Friends</h2>
+
+    <p>Google members have written a number of excellent tools which support AngularJs development</p>
+    <ul>
+      <li>Karma: A test runner for Angular</li>
+      <li>Yeoman: A set of tools which provide code generation, package management and build support (tasks execution)
+      </li>
+      <li>Protractor: An end to end testing framework for Angular which uses Selenium and WebDriverJS</li>
+      <li>Batarang: A chrome plugin which allows you to inspect Angular as it runs</li>
+    </ul>
+  </section>
 </section>
 
 <!-- Thinking about your application in terms of Angular -------------------------------------------------------------------->
@@ -400,7 +459,7 @@
   <section data-transition="linear" data-transition-speed="medium">
     <h2>How large is Angular?</h2>
 
-    <p>You might think all of Angular's features result in a large and bloated framework.</p>
+    <p>You might think all of Angular's features result in a large and bloated framework</p>
   </section>
   <section data-transition="linear" data-transition-speed="medium">
     <h3>Actually, it weighs in at only...</h3>
@@ -424,7 +483,7 @@
 
     <p>People often ask why the name Angular? AngularJS focuses on HTML markup which contains angled brackets</p>
 
-    <p>So Angular was named after the HTML angled brackets.</p>
+    <p>So Angular was named after the HTML angled brackets</p>
   </section>
 
   <!-- Why is the logo a shield with a letter A on it? -------------------------------------------------------------------------->
@@ -439,7 +498,45 @@
       </li>
     </ul>
   </section>
+
+  <!-- Size of Core Team -------------------------------------------------------------------------->
+  <section>
+    <h3>Size of Core Team</h3>
+
+    <p>At the the 2014 Angular conference it was announced that there are 14 core members on the Angular team</p>
+
+    <p>Many of the team members were recruited from the Angular community based on their contributions to Angular</p>
+  </section>
+
+
 </section>
+
+<!-- The future of Angular -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>The future of Angular</h2>
+    <ul>
+      <li>Lazy loading dependency injection using ES6 modules</li>
+      <li>Faster change detection of data binding using ES6 Object.observe</li>
+      <li>Polyfills for features which are not natively supported on all web browsers</li>
+      <li>Better support for mobile application development</li>
+    </ul>
+  </section>
+  <section data-transition="linear" data-transition-speed="medium">
+    <h3>The future of Angular (cont)</h3>
+    <ul>
+      <li>Built-in offline support - so apps work completely offine</li>
+      <li>AngularDart - Angular for Google's Dart programming language and platform</li>
+      <li>Angular 2.0 includes support for emerging browser technologies such as web components and the shadow DOM
+        Angular does this in cooperation with the Polymer project
+      </li>
+      <li>Improved debugging and instrumentation tools. Zone.js for improved stack traces, and diary.js for improved
+        logging
+      </li>
+    </ul>
+  </section>
+</section>
+
 
 <!-- Closing notes -------------------------------------------------------------------->
 <section data-transition="zoom" data-transition-speed="medium">
@@ -459,6 +556,7 @@
 <!-- Angular project files -->
 <script src="js/jquery-2.1.1.min.js"></script>
 <script src="js/angular.min.js"></script>
+<script src="js/angular-animate.min.js"></script>
 <script src="js/presentationapp.js"></script>
 <script src="js/ph-panel.js"></script>
 
@@ -481,6 +579,14 @@
     // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
     // parallaxBackgroundSize: '2100px 900px',
 
+    leap: {
+      //gestureDelay: 1000,
+      //pointerTolerance: 40,
+      naturalSwipe: true,    // Invert swipe gestures
+      pointerOpacity: 0.25,      // Set pointer opacity to 0.5
+      pointerColor: '#FFFFFF' // color pointer
+    },
+
     // Optional libraries used to extend on reveal.js
     dependencies: [
       { src: 'lib/js/classList.js', condition: function() {
@@ -500,7 +606,8 @@
       } },
       { src: 'plugin/notes/notes.js', async: true, condition: function() {
         return !!document.body.classList;
-      } }
+      } },
+      { src: 'plugin/leap/leap-0.2.0.js', async: true }
     ]
   });
 </script>
