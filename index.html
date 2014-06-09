@@ -13,6 +13,7 @@
 
   <link rel="stylesheet" href="css/reveal.min.css">
   <link rel="stylesheet" href="css/theme/sky.css" id="theme">
+  <link rel="stylesheet" href="css/presentation.css">
 
   <!-- For syntax highlighting -->
   <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -61,8 +62,11 @@
     </ul>
     <aside class="notes">
       <p>AJAX marked an important shift in the development of the web.</p>
+
       <p>Front-ends started relying less on backend servers as more application logic moved into the front-end.</p>
-      <p>This benifited the backend because rendering, logic and computation could be distributed to user machines allowing backends to more easily scale.
+
+      <p>This benifited the backend because rendering, logic and computation could be distributed to user machines
+        allowing backends to more easily scale.
       </p>
     </aside>
   </section>
@@ -71,16 +75,18 @@
   <section data-transition="linear" data-transition-speed="medium">
     <h2>Handling front-end complexity</h2>
     <ul>
-      <li>More code moves into the front-end</li>
+      <li>Code moves into the front-end</li>
       <li>Developers face increased code complexity</li>
       <li>Enter: open-source front-end web frameworks with names like: Backbone, Ember, Knockout and
         Angular
       </li>
     </ul>
     <aside class="notes">
-      <p>As code moved into the front-end and front-ends became richer, developers found they needed ways to handle the
-      increased code in the front-end. So they consider how large applications are built using software libraries and frameworks.
-      They begin developing open-source front-end web frameworks with names like: Backbone, Ember, Knockout and Angular.</p>
+      As code moved into the front-end and front-ends became richer, developers found they needed ways to handle the
+      increased code in the front-end. So they consider how large applications are built using software libraries and
+      frameworks.
+
+      They begin developing open-source front-end web frameworks with names like: Backbone, Ember, Knockout and Angular.
     </aside>
   </section>
 
@@ -97,6 +103,8 @@
       </li>
       <li>We'll cover many of Angular's features in this presentation</li>
     </ul>
+
+
   </section>
 </section>
 
@@ -222,46 +230,62 @@
 
 <!-- Key points -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
-  <section data-transition="linear" data-transition-speed="medium">
-    <h2>Key Concepts</h2>
-  </section>
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Key Concepts</h2>
+  <aside class="notes">
+    <p>In this section we'll explore key concepts in AngularJS</p>
+    <p>The goal is to get a sense of what's available and how we can take advantage of Angular in our own applications.</p>
+  </aside>
+</section>
 
-  <!-- Embracing best practices -------------------------------------------------------------------------->
-  <section data-transition="linear" data-transition-speed="medium">
-    <h2>Embracing best practices</h2>
+<!-- Test code -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Test code</h2>
+  <aside class="notes">
+    <p>Let's examine the general structure of a simple Angular application.</p>
+  </aside>
 
-    <p>The Angular team borrowed heavily from other<br>successful frameworks</p>
+</section>
 
-    <p>Angular's claim to fame is that it implements popular idioms while embracing HTML and other web standards</p>
 
-    <p>Angular is more about embracing HTML<br>than wrestling with it</p>
-  </section>
+<!-- Embracing best practices -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Embracing best practices</h2>
 
-  <!-- Declarative programming -------------------------------------------------------------------------->
-  <section data-transition="linear" data-transition-speed="medium">
-    <h3>Declarative programming</h3>
+  <p>The Angular team borrowed heavily from other<br>successful frameworks</p>
 
-    <p>Declarative programs describe what programs should do and not how they're implemented</p>
+  <p>Angular's claim to fame is that it implements popular idioms while embracing HTML and other web standards</p>
 
-    <p>A classic example of declarative programming is the SQL language which describes queries and database operations
-      at a high level of abstraction</p>
+  <p>Angular is more about embracing HTML<br>than wrestling with it</p>
+</section>
 
-    <p>Angular embraces HTML, by allowing developers to describe what they HTML should do. It does this by extending
-      HTML along the same path that HTML5 has extended HTML - by adding markup directives</p>
-  </section>
+<!-- Declarative programming -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h3>Declarative programming</h3>
 
-  <!-- HTML5 data attribute -------------------------------------------------------------------------->
-  <section data-transition="linear" data-transition-speed="medium">
-    <h3>HTML5 data attribute</h3>
+  <p>Declarative programs describe what programs should do and not how they're implemented</p>
 
-    <p>The HTML5 data attribute allows designers to specify additional properties and behaviors for HTML5 elements.</p>
+  <p>A classic example of declarative programming is the SQL language which describes queries and database operations
+    at a high level of abstraction</p>
 
-    <p>By querying the DOM, programmers can detect the presence of attributes to augment the element.</p>
-  </section>
+  <p>Angular embraces HTML, by allowing developers to describe what they HTML should do. It does this by extending
+    HTML along the same path that HTML5 has extended HTML - by adding markup directives</p>
+</section>
 
-  <section data-transition="linear" data-transition-speed="medium">
-    <p>In this example, jQueryMobile uses the data-role and data-filter-placeholder attributes to determine how the list
-      should be transformed</p>
+<!-- HTML5 data attribute -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h3>HTML5 data attribute</h3>
+
+  <p>The HTML5 data attribute allows designers to specify additional properties and behaviors for HTML5 elements.</p>
+
+  <p>By querying the DOM, programmers can detect the presence of attributes to augment the element.</p>
+</section>
+
+<section data-transition="linear" data-transition-speed="medium">
+  <p>In this example, jQueryMobile uses the <span class="pres-blue">data-role</span> and <span
+    class="pres-blue">data-filter-placeholder</span>
+    attributes to determine how the list
+    should be transformed</p>
     <pre><code>
       &lt;ul data-role=&quot;listview&quot; data-filter=&quot;true&quot; data-filter-placeholder=&quot;Search fruits...&quot;
       data-inset=&quot;true&quot;&gt;
@@ -273,52 +297,82 @@
       &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Orange&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     </code></pre>
-    <p>From the above to this...</p>
-  </section>
+  <p>From the above to this...</p>
+</section>
 
-  <section data-transition="linear" data-transition-speed="medium">
-    <p>To this:</p>
-    <img src="images/Listview_-_jQuery_Mobile_Demos.png">
-  </section>
+<section data-transition="linear" data-transition-speed="medium">
+  <p>To this:</p>
+  <img src="images/Listview_-_jQuery_Mobile_Demos.png">
+</section>
 
-  <section data-transition="linear" data-transition-speed="medium">
-    <p>Angular calls these directives. You can think of directives as meta data for markup.</p>
+<section data-transition="linear" data-transition-speed="medium">
+  <p>Angular calls these directives. Fow now, you can think of directives as meta data for markup.</p>
     <pre><code>
       !doctype html&gt;
       &lt;html ng-app&gt;
       &lt;head&gt;
-      &lt;script src=&quot;js/angular.min.js&quot;&gt;&lt;/script&gt;
       &lt;/head&gt;
       &lt;body&gt;
-      &lt;div&gt;
-      &lt;label&gt;Name:&lt;/label&gt;
-      &lt;input type=&quot;text&quot; ng-model=&quot;yourName&quot;
-      placeholder=&quot;Enter a name here&quot;&gt;
-      &lt;hr&gt;
-      &lt;h1&gt;Hello {{yourName}}!&lt;/h1&gt;
-      &lt;/div&gt;
+        &lt;div&gt;
+        &lt;label&gt;Name:&lt;/label&gt;
+        &lt;input type=&quot;text&quot; ng-model=&quot;yourName&quot;
+        placeholder=&quot;Enter a name here&quot;&gt;
+        &lt;hr&gt;
+        &lt;h1&gt;Hello {{yourName}}!&lt;/h1&gt;
+        &lt;/div&gt;
+        &lt;script src=&quot;js/angular.min.js&quot;&gt;&lt;/script&gt;
       &lt;/body&gt;
       &lt;/html&gt;
     </code></pre>
-    <p>The ng-app and ng-model in the markup above are Angular directives used to convey important information to
-      Angular concerning where the Angular application begins and which model an input is bound to</p>
-  </section>
+  <p>The <span class="pres-blue">ng-app</span> and <span class="pres-blue">ng-model</span> in the
+    markup above are Angular directives used to convey important information to
+    Angular concerning where the Angular application begins and which model an input is bound to</p>
+</section>
 
-  <section data-transition="linear" data-transition-speed="medium">
-    <h3>Let's see a live example:</h3>
+<section data-transition="linear" data-transition-speed="medium">
+  <h3>Let's see a live example:</h3>
 
-    <div>
-      <label>Name:</label>
-      <input type="text" ng-model="yourName" placeholder="Enter a name here">
-      <hr>
-      <h2>Hello {{yourName}}!</h2>
-    </div>
-  </section>
+  <div>
+    <label>Name:</label>
+    <input type="text" ng-model="yourName" placeholder="Enter a name here">
+    <hr>
+    <h2>Hello {{yourName}}!</h2>
+  </div>
+</section>
 
-  <section data-transition="linear" data-transition-speed="medium">
-    <p>Here is another example.</p>
+<!-- More fun with data binding -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h3>More fun with data binding</h3>
 
-    <p>With Angular we can define our own directives as I did below with the ph-panel directive:</p>
+  <p>Expressions can be evaluated inside of mustache tags</p>
+  <img src="images/databinding.png">
+  <aside class="notes">
+    <p>You can do a lot more with data binding. Inside of mustache tags you can have expressions evaluated.</p>
+
+    <p>Those expressions can use data values you define. It's important to note that this isn't JavaScript, they're
+      expressions which Angular parses and makes sense of.</p>
+
+    <p>The beauty of this is that has the data values change the page updates without requiring a round trip to a
+      backend server.</p>
+  </aside>
+</section>
+
+<!-- Data binding and filters -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Data binding and filters</h2>
+  <aside class="notes">
+    <p>Introduce filters</p>
+
+    <p>currency</p>
+
+    <p>captilization</p>
+  </aside>
+</section>
+
+<section data-transition="linear" data-transition-speed="medium">
+  <h3>Extending HTML</h3>
+
+  <p>With Angular we can define our own directives as I did below with the ph-panel directive:</p>
     <pre><code>
       &lt;div ph-panel title=&quot;This is the title&quot;&gt;
       &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -331,48 +385,94 @@
       qui officia deserunt mollit anim id estlaborum.&lt;/p&gt;
       &lt;/div&gt;
     </code></pre>
-  </section>
+</section>
 
-  <section data-transition="linear" data-transition-speed="medium">
-    <p>Here is the live code using the ph-panel directive:</p>
-    <div ph-panel title="Panel Title">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur.
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.</p>
-    </div>
-  </section>
+<section data-transition="linear" data-transition-speed="medium">
+  <p>Here is the live code using the ph-panel directive:</p>
 
-  <section data-transition="linear" data-transition-speed="medium">
-    <h3>Data binding</h3>
-    <ul>
-      <li>The earlier example with the input field and hello name illustrated another important concept in Angular, Data
-        Binding
-      </li>
-      <li>Angular allows you to bind data to your models and for that binding to be bi-directional</li>
-      <li>That's why we were able to type a name in an input field and see the text update in real-time</li>
-    </ul>
-  </section>
+  <div ph-panel title="Panel Title">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+      pariatur.
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+      laborum.</p>
+  </div>
+</section>
+
+<section data-transition="linear" data-transition-speed="medium">
+  <h3>Data binding</h3>
+  <ul>
+    <li>The earlier example with the input field and hello name illustrated another important concept in Angular, Data
+      Binding
+    </li>
+    <li>Angular allows you to bind data to your models and for that binding to be bi-directional</li>
+    <li>That's why we were able to type a name in an input field and see the text update in real-time</li>
+  </ul>
+</section>
+
+<!-- Angular MVC -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Angular MVC</h2>
+
+  <p>Angular support application seperation of concerns using MVC and modules such as services and routers</p>
+  <ul>
+    <li>In Angular, the Model is implemented using the scope</li>
+    <li>Views are simply HTML templates with declarative annoations and data interpolations</li>
+    <li>And Controllers are just plain old JavaScript object</li>
+  </ul>
+</section>
+
+<!-- Scope -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Scope</h2>
+</section>
+
+<!-- Understanding Scope -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Understanding Scope</h2>
+  <aside class="notes">
+    <p>Discuss RootScope and Scope</p>
+  </aside>
+
+</section>
 
 
+<!-- Controllers -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Controllers</h2>
+  <aside class="notes"></aside>
+</section>
 
-  <!-- Scope -------------------------------------------------------------------------->
-  <section data-transition="linear" data-transition-speed="medium">
-    <h2>Scope</h2>
-  </section>
+<!-- Controllers and scope -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Controllers and scope</h2>
+  <aside class="notes">
+    Discuss scope inheritance
 
-  <!-- Angular MVC -------------------------------------------------------------------------->
-  <section data-transition="linear" data-transition-speed="medium">
-    <h2>Angular MVC</h2>
-    <p>Angular support application seperation of concerns using MVC and modules such as services and routers</p>
-    <ul>
-      <li>In Angular, the Model is implemented using the scope</li>
-      <li>Views are simply HTML templates with declarative annoations and data interpolations</li>
-      <li>And Controllers are just plain old JavaScript object</li>
-    </ul>
-  </section>
+  </aside>
+</section>
+
+<!-- Controllers and methods -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Controllers and methods</h2>
+  <aside class="notes"></aside>
+</section>
+
+<!-- Angular Modules -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Angular Modules</h2>
+  <aside class="notes"></aside>
+</section>
+
+<!-- Angular Services -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Angular Services</h2>
+  <aside class="notes">
+    Sharing data between controllers using services
+  </aside>
+</section>
+
 
 </section>
 

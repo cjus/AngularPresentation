@@ -1,0 +1,31 @@
+.pres-bold {
+  font-weight: bold;
+}
+
+.pres-red {
+  color: #880000;
+}
+
+.pres-blue {
+  color: #0830aa;
+}
+
+.pres-yellow {
+  background-color: #f8f800;
+}
+
+.pres-green {
+  background-color: #3cb02a;
+}
+
+.pres-yellow-highlight {
+  background-color: #f8f800;
+  border-radius: 12px;
+  padding: 5px;
+  /*box-shadow: 3px 3px 4px 4px rgba(0, 0, 0, 0.2);*/
+}
+
+.pres-underline {
+  text-decoration: underline;
+}
+
