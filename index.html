@@ -241,22 +241,38 @@
 <!-- Test code -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
   <h2>Test code</h2>
+
+  <p>Here's the structure of the basic angular enabled page we'll reuse in this presentation.</p>
+  <pre><code contenteditable style="font-size: 18px; margin-top: 20px;">
+  &lt;!DOCTYPE html&gt;
+  &lt;html ng-app&gt;
+  &lt;head&gt;
+  &lt;title&gt;Basic Angular App&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;script src=&quot;angular.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+  </code></pre>
+  <p>Before we dig too deeply into code lets examine a few core concepts...</p>
   <aside class="notes">
-    <p>Let's examine the general structure of a simple Angular application.</p>
+    <p>Here is a basic HTML file that uses angular. We'll use this structure through this presentation. At the top of
+      the file we see an ng-app attribute. This is simply a data tag which will be used by the angular script once it loads.</p>
+    <p>Within the bottom of the body tag we see that angular is loaded along with our app.js script.</p>
+    <p>Before we dig to deeply into code lets examine a few core concepts...</p>
   </aside>
-
 </section>
-
 
 <!-- Embracing best practices -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
   <h2>Embracing best practices</h2>
-
   <p>The Angular team borrowed heavily from other<br>successful frameworks</p>
-
   <p>Angular's claim to fame is that it implements popular idioms while embracing HTML and other web standards</p>
-
   <p>Angular is more about embracing HTML<br>than wrestling with it</p>
+  <aside class="notes">
+    <p>Developers were using existing JavaScript frameworks long before Angular was introduced.  What makes Angular intertesting to developers is that it represents an evolution over older frameworks.  One that embraces web standards and modern best practices.</p>
+  </aside>
 </section>
 
 <!-- Declarative programming -------------------------------------------------------------------------->
@@ -286,17 +302,17 @@
     class="pres-blue">data-filter-placeholder</span>
     attributes to determine how the list
     should be transformed</p>
-    <pre><code>
-      &lt;ul data-role=&quot;listview&quot; data-filter=&quot;true&quot; data-filter-placeholder=&quot;Search fruits...&quot;
-      data-inset=&quot;true&quot;&gt;
-      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Apple&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Banana&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Cherry&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Cranberry&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Grape&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Orange&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    </code></pre>
+  <pre><code>
+&lt;ul data-role=&quot;listview&quot; data-filter=&quot;true&quot; data-filter-placeholder=&quot;Search fruits...&quot;
+data-inset=&quot;true&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Apple&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Banana&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Cherry&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Cranberry&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Grape&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Orange&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+  </code></pre>
   <p>From the above to this...</p>
 </section>
 
@@ -308,21 +324,21 @@
 <section data-transition="linear" data-transition-speed="medium">
   <p>Angular calls these directives. Fow now, you can think of directives as meta data for markup.</p>
     <pre><code>
-      !doctype html&gt;
-      &lt;html ng-app&gt;
-      &lt;head&gt;
-      &lt;/head&gt;
-      &lt;body&gt;
-        &lt;div&gt;
-        &lt;label&gt;Name:&lt;/label&gt;
-        &lt;input type=&quot;text&quot; ng-model=&quot;yourName&quot;
-        placeholder=&quot;Enter a name here&quot;&gt;
-        &lt;hr&gt;
-        &lt;h1&gt;Hello {{yourName}}!&lt;/h1&gt;
-        &lt;/div&gt;
-        &lt;script src=&quot;js/angular.min.js&quot;&gt;&lt;/script&gt;
-      &lt;/body&gt;
-      &lt;/html&gt;
+!doctype html&gt;
+&lt;html ng-app&gt;
+&lt;head&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div&gt;
+  &lt;label&gt;Name:&lt;/label&gt;
+  &lt;input type=&quot;text&quot; ng-model=&quot;yourName&quot;
+  placeholder=&quot;Enter a name here&quot;&gt;
+  &lt;hr&gt;
+  &lt;h1&gt;Hello {{yourName}}!&lt;/h1&gt;
+  &lt;/div&gt;
+  &lt;script src=&quot;js/angular.min.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
     </code></pre>
   <p>The <span class="pres-blue">ng-app</span> and <span class="pres-blue">ng-model</span> in the
     markup above are Angular directives used to convey important information to
@@ -371,32 +387,23 @@
 
 <section data-transition="linear" data-transition-speed="medium">
   <h3>Extending HTML</h3>
-
   <p>With Angular we can define our own directives as I did below with the ph-panel directive:</p>
-    <pre><code>
-      &lt;div ph-panel title=&quot;This is the title&quot;&gt;
-      &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing
-      elit, sed do eiusmod tempor incididunt ut labore et
-      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-      exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in
-      voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-      Excepteur sint occaecat cupidatat non proident, sunt in culpa
-      qui officia deserunt mollit anim id estlaborum.&lt;/p&gt;
-      &lt;/div&gt;
-    </code></pre>
+  <pre><code>
+&lt;div ph-panel title=&quot;This is the panel's title&quot;&gt;
+&lt;p&gt;This is the panel's body.&lt;/p&gt;
+&lt;/div&gt;
+  </code></pre>
 </section>
 
 <section data-transition="linear" data-transition-speed="medium">
   <p>Here is the live code using the ph-panel directive:</p>
 
-  <div ph-panel title="Panel Title">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-      pariatur.
-      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-      laborum.</p>
+  <div ph-panel title="This is the panel's title">
+    <p>This is the panel's body.</p>
+    <p>A few extra lines for good measure</p>
+    <p>A few extra lines for good measure</p>
+    <p>A few extra lines for good measure</p>
+    <p>A few extra lines for good measure</p>
   </div>
 </section>
 
@@ -607,8 +614,6 @@
 
     <p>Many of the team members were recruited from the Angular community based on their contributions to Angular</p>
   </section>
-
-
 </section>
 
 <!-- The future of Angular -------------------------------------------------------------------------->
@@ -635,6 +640,17 @@
       </li>
     </ul>
   </section>
+</section>
+
+
+<!-- Resources -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Resources</h2>
+  <!--http://www.ng-newsletter.com/-->
+  <aside class="notes">
+    <p></p>
+  </aside>
+
 </section>
 
 
