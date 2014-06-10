@@ -570,12 +570,55 @@
   <!-- Data binding and filters -------------------------------------------------------------------------->
   <section data-transition="linear" data-transition-speed="medium">
     <h2>Data binding and filters</h2>
+    <ul ng-non-bindable>
+      <li>Angular enables data filtering</li>
+      <li>Bound expressions can be further processed through a pipe of filters</li>
+      <li>The format is: {{ expression | filter }}</li>
+    </ul>
+    <!--@formatter:off-->
+    <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  &lt;!DOCTYPE html&gt;
+  &lt;html ng-app&gt;
+  &lt;head&gt;
+    &lt;title&gt;Data binding and Filters&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+     &lt;p&gt;1) Cost: {{ 11.99 + (11.99 * 0.33) | currency }}&lt;/p&gt;
+     &lt;p&gt;2) Data: {{ 1288323623006 | date:&apos;yyyy-MM-dd HH:mm:ss Z&apos; }}&lt;/p&gt;
+     &lt;p&gt;3) Lowercase: {{ &quot;Buy Now!&quot; | lowercase }}&lt;/p&gt;
+     &lt;p&gt;4) Uppercase: {{ &quot;Buy Now!&quot; | uppercase }}&lt;/p&gt;
+     &lt;p&gt;5) Here is some JSON data: {{ {&apos;Boy&apos;:&apos;Fred&apos;, &apos;Girl&apos;:&apos;Jill&apos;} | json }}&lt;/p&gt;
+     &lt;script src=&quot;angular.min.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+    </code></pre>
+    <!--@formatter:on-->
+    <hr>
+    <small class="pre-bold pres-light-yellow-highlight">Source: /samplecode/DataBindingWithFilters</small>
+
     <aside class="notes">
       <p>Introduce filters</p>
-
       <p>currency</p>
-
       <p>capitalization</p>
+    </aside>
+  </section>
+
+  <!-- Here's the output -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Here's the output</h2>
+
+    <p>1) Cost: {{ 11.99 + (11.99 * 0.33) | currency }}</p>
+
+    <p>2) Data: {{ 1288323623006 | date:'yyyy-MM-dd HH:mm:ss Z' }}</p>
+
+    <p>3) Lowercase: {{ "Buy Now!" | lowercase }}</p>
+
+    <p>4) Uppercase: {{ "Buy Now!" | uppercase }}</p>
+
+    <p>5) Here is some JSON data: {{ {'Boy':'Fred', 'Girl':'Jill'} | json }}</p>
+
+    <aside class="notes">
+      <p></p>
     </aside>
   </section>
 
@@ -589,13 +632,13 @@
   &lt;head&gt;
     &lt;title&gt;DataBindingWithClasses&lt;/title&gt;
     &lt;style&gt;
-      .red { color: red; } .green { color: green; } .blue { color: blue; }
+      .red { color: red; }  .green { color: green; }  .blue { color: blue; }
     &lt;/style&gt;
   &lt;/head&gt;
   &lt;body&gt;
     &lt;h1 class=&quot;{{ data.classColor }}&quot;&gt;Basic Angular App&lt;/h1&gt;
     &lt;label&gt;Title color: &lt;/label&gt;
-    &lt;input type=&quot;test&quot; ng-model=&quot;data.classColor&quot;&gt;
+    &lt;input type=&quot;text&quot; ng-model=&quot;data.classColor&quot;&gt;
     &lt;script src=&quot;angular.min.js&quot;&gt;&lt;/script&gt;
   &lt;/body&gt;
   &lt;/html&gt;
@@ -614,27 +657,45 @@
     <h2>Let's try it!</h2>
     <p class="{{ data.classColor }}">Data Binding with Classes</p>
     <label>Title color: </label>
-    <input class="pres-input" type="test" ng-model="data.classColor" placeholder="red, green or blue">
+    <input class="pres-input" type="text" ng-model="data.classColor" placeholder="red, green or blue">
     <aside class="notes">
       <p></p>
     </aside>
   </section>
-
-
 </section>
 
 <!-- Scope -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
-  <h2>Scope</h2>
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Scope</h2>
+    <ul>
+      <li>A scope is a JavaScript object</li>
+      <li>It's an execution context for expressions</li>
+      <li>It can hold data, functions and watch expressions fire events</li>
+      <li>It's bound to an angular application</li>
+    </ul>
+    <aside class="notes">
+      <p>A scope is a JavaScript object.</p>
+      <p>Angular extends a scope object to apply built-in functions</p>
+      <p>When used with Angular it's an execution context for expressions</p>
+      <p>It can hold data, functions and watch expressions fire events</p>
+      <p>It's bound to an angular application</p>
+    </aside>
+  </section>
+
+  <!-- Understanding Scope -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Understanding Scope</h2>
+    <aside class="notes">
+      <p>In the last slide we talked about scope being a JavaScript object, however we also learned the scope include helper function to perform various data binding related tasks.</p>
+      <p>Angular does this by extending plain JS objects with its own scope object.  This retains the data and functions you've added to your scope in addition to the one's Angular has added.</p>
+      <p>Discuss RootScope and Scope</p>
+      <p>https://github.com/angular/angular.js/wiki/Understanding-Scopes</p>
+    </aside>
+  </section>
+
 </section>
 
-<!-- Understanding Scope -------------------------------------------------------------------------->
-<section data-transition="linear" data-transition-speed="medium">
-  <h2>Understanding Scope</h2>
-  <aside class="notes">
-    <p>Discuss RootScope and Scope</p>
-  </aside>
-</section>
 
 <!-- Controllers -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
@@ -1006,10 +1067,14 @@
 <!-- Resources -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
   <h2>Resources</h2>
+
+  <!--https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.js-->
   <!--http://www.ng-newsletter.com/-->
   <!--http://www.fse.guru/angularjs-code-guidelines-->
   <aside class="notes">
-    <p></p>
+    <p>There's a wealth of AngularJS resources available online.</p>
+    <p>However, one resource which is surprisingly overlooked it the actual AngularJS source code.</p>
+    <P>The uncompressed / unminified Angular codebase is well documented and a great source for learning what makes Angular tick.</P>
   </aside>
 </section>
 

@@ -3,15 +3,13 @@
 <head>
   <title>DataBindingWithClasses</title>
   <style>
-    .red { color: red; }
-    .green { color: green; }
-    .blue { color: blue; }
+    .red { color: red; }  .green { color: green; }  .blue { color: blue; }
   </style>
 </head>
 <body>
   <h1 class="{{ data.classColor }}">Basic Angular App</h1>
   <label>Title color: </label>
-  <input type="test" ng-model="data.classColor">
+  <input type="text" ng-model="data.classColor">
   <script src="angular.min.js"></script>
 </body>
 </html>

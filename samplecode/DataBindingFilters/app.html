@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+  <title>Data binding and Filters</title>
+</head>
+<body>
+   <p>1) Cost: {{ 11.99 + (11.99 * 0.33) | currency }}</p>
+   <p>2) Data: {{ 1288323623006 | date:'yyyy-MM-dd HH:mm:ss Z' }}</p>
+   <p>3) Lowercase: {{ "Buy Now!" | lowercase }}</p>
+   <p>4) Uppercase: {{ "Buy Now!" | uppercase }}</p>
+   <p>5) Here is some JSON data: {{ {'Boy':'Fred', 'Girl':'Jill'} | json }}</p>
+
+   <script src="angular.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
