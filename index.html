@@ -5,7 +5,7 @@
 
   <title>AngularJS Presentation</title>
 
-  <meta name="description" content="An in-house AngularJS Prentation">
+  <meta name="description" content="An in-house AngularJS Presentation">
   <meta name="author" content="Carlos Justiniano">
   <meta name="apple-mobile-web-app-capable" content="yes"/>
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
@@ -29,6 +29,12 @@
     }
   </script>
 
+  <style>
+    .red { color: red; }
+    .green { color: green; }
+    .blue { color: blue; }
+  </style>
+
   <!--[if lt IE 9]>
   <script src="lib/js/html5shiv.js"></script>
   <![endif]-->
@@ -43,8 +49,7 @@
   <img style="border: 0; padding: 20px;" src="images/AngularJS-Shield.png">
   <h3>YAAP: Yet another AngularJS Presentation</h3>
   <p>
-    <small>Presented by <a href="http://cjus.me">Carlos Justiniano</a> / <a href="http://twitter.com/cjus">@cjus</a>
-    </small>
+    <small>Presented by <a href="http://cjus.me">Carlos Justiniano</a> / <a href="http://twitter.com/cjus">@cjus</a></small>
   </p>
 </section>
 
@@ -203,6 +208,8 @@
 
     <p>Within the bottom of the body tag we see that angular is loaded along with our app.js script.</p>
 
+    <p>This is all that is required to begin using AngularJS.</p>
+
     <p>Before we dig too deeply into code lets examine a few core concepts.</p>
 
     <p>I promise we'll be back in code shortly.</p>
@@ -225,17 +232,22 @@
 <section data-transition="linear" data-transition-speed="medium">
   <h2>Embracing best practices</h2>
 
-  <p>The Angular team borrowed heavily from other<br>successful frameworks</p>
-
-  <p>Angular's claim to fame is that it implements popular idioms while embracing HTML and other web standards</p>
-
-  <p>Angular is more about embracing HTML<br>than wrestling with it</p>
+  <ul>
+    <li>Angular borrows heavily from other successful frameworks</li>
+    <li>Angular implements popular idioms while embracing HTML and other web standards</li>
+    <li>It's more about embracing HTML<br>than wrestling with it</li>
+  </ul>
   <aside class="notes">
-    <p>Developers were using existing JavaScript frameworks long before Angular was introduced.</p>
+    <p>Angular core developers would be the first to admit that Angular is based heavily on ideas which are far from
+      new.</p>
+
+    <p>After all, developers were using existing JavaScript frameworks long before Angular was introduced.</p>
 
     <p>What makes Angular interesting to developers is that it represents an evolution over older frameworks.</p>
 
     <p>One that embraces web standards and modern best practices.</p>
+    <!--<p>Many envision a world where HTML and browser technologies evolve to a point where frameworks like Angular are far less neessary.</p>-->
+
   </aside>
 </section>
 
@@ -245,7 +257,10 @@
 
   <aside class="notes">
     <p>A core concept we'll see throughout our use of Angular is its focus on HTML markup</p>
-    <p>This focus is not misplaced as making HTML more useful and ultimately a pleasure to work with is no simple achievement</p>
+
+    <p>This focus is not misplaced as making HTML more useful and ultimately a pleasure to work with is no simple
+      achievement</p>
+
     <p>Angular does this with its use of declarative programming</p>
   </aside>
 
@@ -269,7 +284,7 @@
 
     <p>Angular embraces this approach allowing us to do this using directives and HTML behavioral annotations</p>
 
-    <p>A core Angular philosophy is that the best way to build UIs is using declaritive syntax. With Angular we add
+    <p>A core Angular philosophy is that the best way to build UI's is using declarative syntax. With Angular we add
       behavior to HTML markup using directives.</p>
 
     <p>Let's take a closer look at this directive stuff.</p>
@@ -367,6 +382,8 @@
     <!--@formatter:on-->
   <p>The <span class="pres-blue">ng-app</span> in the markup is an Angular directives used to inform Angular where the
     Angular application begins</p>
+  <hr>
+  <small class="pre-bold pres-light-yellow-highlight">Source: /samplecode/BasicAngularApp</small>
   <aside class="notes">
     <p>When the Angular script loads it scans the DOM looking for the ng-app directive. Angular then restricts its
       operations to just the scope of the ng-app directive.</p>
@@ -411,6 +428,8 @@
 
     <p>A few extra lines for good measure</p>
   </div>
+  <hr>
+  <small class="pre-bold pres-light-yellow-highlight">Source: /samplecode/ph-panel</small>
   <aside class="notes">
     <p>In Angular, the topic of directives is a large one. In fact, Alex Vanston wrote "Angular Directives", an entire
       book which explore directives</p>
@@ -421,7 +440,6 @@
 <section data-transition="linear" data-transition-speed="medium">
   <h2>Delivering on the promise of HTML</h2>
 
-  <p>HTML FTW</p>
   <aside class="notes">
     <p>The declarative nature of HTML and the ability to extend it using directives is fundamental to what Angular
       tries to help designers and developers achieve</p>
@@ -446,9 +464,20 @@
   </section>
 
   <section data-transition="linear" data-transition-speed="medium">
-    <p>Angular calls these directives. For now, you can think of directives as meta data for markup.</p>
+    <h2>Data binding</h2>
+    <ul>
+      <li>Allows data to be bound to markup</li>
+      <li>Updated in real-time as data changes</li>
+    </ul>
+    <aside class="notes">
+      <p>Angular supports the ability to bind data to markup and to bi-directionally update that data when the data changes.</p>
+      <p>Let's take a closer look.</p>
+    </aside>
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
     <!--@formatter:off-->
-    <pre><code>
+    <pre><code ng-non-bindable>
   !doctype html&gt;
   &lt;html ng-app&gt;
   &lt;head&gt;
@@ -466,17 +495,20 @@
   &lt;/html&gt;
     </code></pre>
     <!--@formatter:on-->
-    <p>The <span class="pres-blue">ng-app</span> and <span class="pres-blue">ng-model</span> in the
-      markup above are Angular directives used to convey important information to
-      Angular concerning where the Angular application begins and which model an input is bound to</p>
+    <p>The <span class="pres-blue">ng-model</span> in the &lt;input&gt;
+      markup above is an Angular directive used to bind data an input control</p>
+    <aside class="notes">
+      <p>In the example above the ng-model directive is used to bind data to an input control.</p>
+
+      <p>The double curly braces (aka mustache tags) allow us to use the bound data.</p>
+    </aside>
   </section>
 
   <section data-transition="linear" data-transition-speed="medium">
     <h3>Let's see a live example:</h3>
-
     <div>
       <label>Name:</label>
-      <input type="text" ng-model="yourName" placeholder="Enter a name here">
+      <input class="pres-input" type="text" ng-model="yourName" placeholder="Enter a name here">
       <hr>
       <h2>Hello {{yourName}}!</h2>
     </div>
@@ -485,9 +517,29 @@
   <!-- More fun with data binding -------------------------------------------------------------------------->
   <section data-transition="linear" data-transition-speed="medium">
     <h3>More fun with data binding</h3>
-
     <p>Expressions can be evaluated inside of mustache tags</p>
-    <img style="border: 0; padding: 20px;" src="images/databinding.png">
+    <!--@formatter:off-->
+    <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  &lt;!DOCTYPE html&gt;
+  &lt;html ng-app&gt;
+  &lt;head&gt;
+    &lt;title&gt;DataBinding&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h2&gt;Live text: {{ data.message }}&lt;/h2&gt;
+    &lt;h2&gt;{{ &quot;Hello &quot; + &quot;World!&quot; }}&lt;/h2&gt;
+    &lt;h2&gt;{{ 2 + 4}}&lt;/h2&gt;
+
+    &lt;label&gt;Message: &lt;/label&gt;
+    &lt;input type=&quot;text&quot; ng-model=&quot;data.message&quot;&gt;
+
+    &lt;script src=&quot;angular.min.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+    </code></pre>
+    <!--@formatter:on-->
+    <hr>
+    <small class="pre-bold pres-light-yellow-highlight">Source: /samplecode/DataBinding</small>
     <aside class="notes">
       <p>You can do a lot more with data binding. Inside of mustache tags you can have expressions evaluated.</p>
 
@@ -499,6 +551,22 @@
     </aside>
   </section>
 
+  <!--  -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Live text: {{ data.message }}</h2>
+    <h2>{{ "Hello " + "World!" }}</h2>
+    <h2>{{ 2 + 4}}</h2>
+
+    <label>Message: </label>
+    <input class="pres-input" type="text" ng-model="data.message">
+
+    <aside class="notes">
+      <p></p>
+    </aside>
+
+  </section>
+
+
   <!-- Data binding and filters -------------------------------------------------------------------------->
   <section data-transition="linear" data-transition-speed="medium">
     <h2>Data binding and filters</h2>
@@ -507,9 +575,51 @@
 
       <p>currency</p>
 
-      <p>capitilization</p>
+      <p>capitalization</p>
     </aside>
   </section>
+
+  <!-- Data binding with CSS classes -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Data binding with CSS classes</h2>
+    <!--@formatter:off-->
+    <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  &lt;!DOCTYPE html&gt;
+  &lt;html ng-app&gt;
+  &lt;head&gt;
+    &lt;title&gt;DataBindingWithClasses&lt;/title&gt;
+    &lt;style&gt;
+      .red { color: red; } .green { color: green; } .blue { color: blue; }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1 class=&quot;{{ data.classColor }}&quot;&gt;Basic Angular App&lt;/h1&gt;
+    &lt;label&gt;Title color: &lt;/label&gt;
+    &lt;input type=&quot;test&quot; ng-model=&quot;data.classColor&quot;&gt;
+    &lt;script src=&quot;angular.min.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+    </code></pre>
+    <!--@formatter:on-->
+    <hr>
+    <small class="pre-bold pres-light-yellow-highlight">Source: /samplecode/DataBindingWithClasses</small>
+
+    <aside class="notes">
+      <p>There's a lot more we can do with data binding. But we'll need to move on...</p>
+    </aside>
+  </section>
+
+  <!--  -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Let's try it!</h2>
+    <p class="{{ data.classColor }}">Data Binding with Classes</p>
+    <label>Title color: </label>
+    <input class="pres-input" type="test" ng-model="data.classColor" placeholder="red, green or blue">
+    <aside class="notes">
+      <p></p>
+    </aside>
+  </section>
+
 
 </section>
 
@@ -552,6 +662,16 @@
   <aside class="notes"></aside>
 </section>
 
+<!-- Dependency Injection -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Dependency Injection</h2>
+  <aside class="notes">
+    <p></p>
+  </aside>
+
+</section>
+
+
 <!-- Angular Services -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
   <h2>Angular Services</h2>
@@ -559,6 +679,7 @@
     Sharing data between controllers using services
   </aside>
 </section>
+
 
 <!-- Angular best practices -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
@@ -832,6 +953,7 @@
       <p>The logo was chosen because the shield resembles the HTML5 logo which also uses a shield and Angular runs on
         top of HTML5
       </p>
+
       <p>Also Misko liked the logo because the shield represents Angular shielding developers from the low-level
         differences among web browsers
       </p>
@@ -885,6 +1007,7 @@
 <section data-transition="linear" data-transition-speed="medium">
   <h2>Resources</h2>
   <!--http://www.ng-newsletter.com/-->
+  <!--http://www.fse.guru/angularjs-code-guidelines-->
   <aside class="notes">
     <p></p>
   </aside>
