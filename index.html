@@ -238,23 +238,24 @@
     <h2>Test code</h2>
     <p>Here's the structure of the basic angular enabled page we'll reuse in this presentation.</p>
     <pre><code contenteditable style="font-size: 18px; margin-top: 20px;">
-    &lt;!DOCTYPE html&gt;
-    &lt;html ng-app&gt;
-    &lt;head&gt;
+  &lt;!DOCTYPE html&gt;
+  &lt;html ng-app&gt;
+  &lt;head&gt;
     &lt;title&gt;Basic Angular App&lt;/title&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
     &lt;script src=&quot;angular.min.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;
-    &lt;/body&gt;
-    &lt;/html&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
     </code></pre>
     <p>Before we dig too deeply into code lets examine a few core concepts...</p>
     <aside class="notes">
       <p>Here is a basic HTML file that uses angular. We'll use this structure through this presentation. At the top of
         the file we see an ng-app attribute. This is simply a data tag which will be used by the angular script once it loads.</p>
       <p>Within the bottom of the body tag we see that angular is loaded along with our app.js script.</p>
-      <p>Before we dig too deeply into code lets examine a few core concepts...</p>
+      <p>Before we dig too deeply into code lets examine a few core concepts.</p>
+      <p>I promise we'll be back in code shortly.</p>
     </aside>
   </section>
 
@@ -268,23 +269,24 @@
       <p>Developers were using existing JavaScript frameworks long before Angular was introduced.</p>
       <p>What makes Angular interesting to developers is that it represents an evolution over older frameworks.</p>
       <p>One that embraces web standards and modern best practices.</p>
+      <p>Angular developers borrowed heavily from what preceded it.</p>
     </aside>
   </section>
 
   <!-- Declarative programming -------------------------------------------------------------------------->
   <section data-transition="linear" data-transition-speed="medium">
     <h3>Declarative programming</h3>
-    <p>Angular embraces HTML, by allowing developers to describe what they HTML should do. It does this by extending
-      HTML along the same path that HTML5 has extended HTML - by adding markup directives</p>
+    <p>Angular embraces HTML, by allowing designers and developers to describe what their HTML should do</p>
     <aside class="notes">
       <p>As a generalization lets consider that there are two general forms of programming: imperative and declarative.</p>
       <p>We can think of imperative as telling the computer how to do something. This is what we do when we write Python, Ruby or JavaScript code.</p>
-      <p>Declarative programs describe what programs should do and not how they're implemented</p>
+      <p>Declarative programs describe what programs should do and not how they're implemented.</p>
       <p>A classic example of declarative programming is the SQL language which describes queries and database operations
         at a high level of abstraction</p>
-      <p>Angular embraces HTML, by allowing developers to describe what they HTML should do. It does this by extending
+      <p>Angular embraces HTML, by allowing developers to describe what their HTML should do. It does this by extending
         HTML along the same path that HTML5 has extended HTML - by adding markup directives</p>
-      <p>A core Angular philosophy is that the best way to build UIs is using declaritive syntax. With Angular we add behavior to HTML markup.</p>
+      <p>A core Angular philosophy is that the best way to build UIs is using declaritive syntax. With Angular we add behavior to HTML markup using directive.</p>
+      <p>Let's take a closer look at this directive stuff.</p>
     </aside>
   </section>
 
@@ -293,6 +295,9 @@
     <h3>HTML5 data attribute</h3>
     <p>The HTML5 data attribute allows designers to specify additional properties and behaviors for HTML5 elements.</p>
     <p>By querying the DOM, programmers can detect the presence of attributes to augment the element.</p>
+    <aside class="notes">
+      <p>HTML5 data attributes allowed things like jQueryMobile to simplify building mobile applications.</p>
+    </aside>
   </section>
 
   <section data-transition="linear" data-transition-speed="medium">
@@ -317,6 +322,33 @@
   <section data-transition="linear" data-transition-speed="medium">
     <p>To this:</p>
     <img src="images/Listview_-_jQuery_Mobile_Demos.png">
+    <aside class="notes">
+      <p>Beyond the mobile styling of what started off as simple markup, jQueryMobile has added behavior to mimic a
+        popular component that allows for data navigation on mobile devices.</p>
+      <p>The rows highlight as the user moves up and down the list, and the button on the right cause the panel to side to the left revealing a detail panel.</p>
+      <p>The search field at the top of the control allows for filtering of the list in realtime.</p>
+      <p>Angular fully embraces this paradigm by allowing developers to build their own component using directives.</p>
+    </aside>
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <p>Angular calls these directives. Fow now, you can think of directives as meta data for markup</p>
+    <p>Earlier, we saw examples of directives when we looked at HTML for our basic angular app</p>
+    <pre><code contenteditable style="font-size: 18px; margin-top: 20px;">
+  &lt;!DOCTYPE html&gt;
+  &lt;html ng-app&gt;
+  &lt;head&gt;
+    &lt;title&gt;Basic Angular App&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;script src=&quot;angular.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+    </code></pre>
+    <p>The <span class="pres-blue">ng-app</span> and <span class="pres-blue">ng-model</span> in the
+      markup above are Angular directives used to convey important information to
+      Angular concerning where the Angular application begins and which model an input is bound to</p>
   </section>
 
   <section data-transition="linear" data-transition-speed="medium">
@@ -396,17 +428,6 @@
       <p>A few extra lines for good measure</p>
       <p>A few extra lines for good measure</p>
     </div>
-  </section>
-
-  <section data-transition="linear" data-transition-speed="medium">
-    <h3>Data binding</h3>
-    <ul>
-      <li>The earlier example with the input field and hello name illustrated another important concept in Angular, Data
-        Binding
-      </li>
-      <li>Angular allows you to bind data to your models and for that binding to be bi-directional</li>
-      <li>That's why we were able to type a name in an input field and see the text update in real-time</li>
-    </ul>
   </section>
 
   <!-- Angular MVC -------------------------------------------------------------------------->
@@ -503,13 +524,11 @@
   <section data-transition="linear" data-transition-speed="medium">
     <h3>End to end testing using Protractor</h3>
   </section>
-
 </section>
 
 <!-- How does Angular work? -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
   <h2>How does Angular work?</h2>
-
   <p>TODO: Angular life cycle</p>
 </section>
 
@@ -517,7 +536,6 @@
 <section data-transition="linear" data-transition-speed="medium">
   <section>
     <h2>Angular and Friends</h2>
-
     <p>Google members have written a number of excellent tools which support AngularJs development</p>
     <ul>
       <li>Karma: A test runner for Angular</li>
@@ -546,7 +564,6 @@
 <section data-transition="linear" data-transition-speed="medium">
   <section data-transition="linear" data-transition-speed="medium">
     <h2>How large is Angular?</h2>
-
     <p>You might think all of Angular's features result in a large and bloated framework</p>
   </section>
   <section data-transition="linear" data-transition-speed="medium">
@@ -568,9 +585,7 @@
   <!-- Why is it called Angular? -------------------------------------------------------------------------->
   <section data-transition="linear" data-transition-speed="medium">
     <h3>Why is it called Angular?</h3>
-
     <p>People often ask why the name Angular? AngularJS focuses on HTML markup which contains angled brackets</p>
-
     <p>So Angular was named after the HTML angled brackets</p>
   </section>
 
@@ -590,9 +605,7 @@
   <!-- Size of Core Team -------------------------------------------------------------------------->
   <section>
     <h3>Size of Core Team</h3>
-
     <p>At the the 2014 Angular conference it was announced that there are 14 core members on the Angular team</p>
-
     <p>Many of the team members were recruited from the Angular community based on their contributions to Angular</p>
   </section>
 </section>
@@ -630,16 +643,13 @@
   <aside class="notes">
     <p></p>
   </aside>
-
 </section>
 
 <!-- Closing notes -------------------------------------------------------------------->
 <section data-transition="zoom" data-transition-speed="medium">
   <h2>Oh, and one last thing...</h2>
-
   <p class="fragment">
     This presentation was built using HTML, CSS, JavaScript and uses RevealJS</p>
-
   <p class="fragment">... and of course it's powered by AngularJS</p>
 </section>
 
