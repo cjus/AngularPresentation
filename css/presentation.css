@@ -29,3 +29,7 @@
   text-decoration: underline;
 }
 
+.pres-image {
+  border: 0;
+  padding: 20px;
+}
