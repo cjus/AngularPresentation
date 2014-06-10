@@ -133,85 +133,6 @@
   </section>
 </section>
 
-<!-- Where did Angular come from? -------------------------------------------------------------------------->
-<section data-transition="linear" data-transition-speed="medium">
-  <section data-transition="linear" data-transition-speed="medium">
-    <h2>Where did Angular come from?</h2>
-  </section>
-
-  <section data-transition="linear" data-transition-speed="medium">
-    <ul>
-      <li>AngularJS was created in 2008 and 2009 by Miško Hevery and Adam Abrons</li>
-      <li>The two set out to build an online JSON storage service hosted at GetAngular.com</li>
-      <li>They eventually decided to scrap the business venture and release Angular as an open source project</li>
-      <li>Adam left the project, but Misko pressed on while working at Google</li>
-    </ul>
-  </section>
-
-  <section data-transition="linear" data-transition-speed="medium">
-    <ul>
-      <li>At Google, Misko meet Brad Green who recruited him to work on the Google Feedback project</li>
-      <li>The project was difficult to work with and at one point Misko claimed he could rewrite the product in two
-        weeks using his personal side project, called Angular
-      </li>
-      <li>At the time Google Feedback had 17,000 lines of code developed over six months by three developers</li>
-      <li>Brad took Misko up on this offer and Misko didn't quite pull it off.</li>
-    </ul>
-  </section>
-
-  <section data-transition="linear" data-transition-speed="medium">
-    <ul>
-      <li>Instead it took him three weeks to rewrite the product and reduce the codebase from 17,000
-        lines to just 1500 lines of code
-      </li>
-      <li>Based on this success, Brad recommended open sourcing the early Angular and recruiting other Googlers to join
-        the project
-      </li>
-      <li>Because the project was open sourced, developers outside of google took notice of the project and started
-        using and contributing to it
-      </li>
-    </ul>
-  </section>
-
-  <section data-transition="linear" data-transition-speed="medium">
-    <ul>
-      <li>One such person turned out to be another Googler, Marc Jacobs from the Google DoubleClick team</li>
-      <li>Marc was part of the Google acquisition of DoubleClick and was tasked to convert a DoubleClick app
-        from Microsoft .NET to the Google Platform
-      </li>
-      <li>Marc, impressed by Angular, devoted a two week sprint to trying the conversion using two parallel approaches:
-        1) Using AngularJS 2) Using Google's GWT
-      </li>
-      <li>Two days into the sprint he completed the project using Angular. Then he tried the same project using GWT and
-        after five days he gave up on it.
-      </li>
-    </ul>
-  </section>
-
-  <section data-transition="linear" data-transition-speed="medium">
-    <p>In October of 2013, the Angular team hosted an internal conference at Google in Mountain View, CA</p>
-
-    <p>They expected around 50 people would attend</p>
-
-    <p>When the conference started there were 197 attendees, presenting 101 project within Google</p>
-  </section>
-
-  <section data-transition="linear" data-transition-speed="medium">
-    <ul>
-      <li>Angular was gaining traction inside and outside of Google</li>
-      <li>The Angular team started tracking how often developers searched for angular relative to other popular
-        frameworks
-      </li>
-    </ul>
-  </section>
-
-  <section data-transition="linear" data-transition-speed="medium">
-    <p>At the 2014, first ever AngularJS conference, Brad and Misko announced that by mid-2013 the popularity of Angular
-      skyrocketed in comparison to other frameworks</p>
-    <img src="images/framework-trends.png">
-  </section>
-
-</section>
 
 <!-- What can Angular do for you? -------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
@@ -224,9 +145,9 @@
   </ul>
 </section>
 
-<!-- Test code -------------------------------------------------------------------------->
+<!-- Demo code -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
-  <h2>Test code</h2>
+  <h2>Demo code</h2>
 
   <p>Here's the structure of the basic angular enabled page we'll reuse in this presentation.</p>
     <!--@formatter:off-->
@@ -399,6 +320,13 @@
   &lt;/div&gt;
     </code></pre>
     <!--@formatter:on-->
+    <aside class="notes">
+      <p>Not only does Angular include a large collection of directives, it also allows developers to build their own
+        custom directives.</p>
+      <p>In this example we see a ph-panel directive which converts the markup into a styled panel complete with a title and body area.</p>
+
+      <p>Notice how we can provide the ph-panel with a title attribute.</p>
+    </aside>
   </section>
 
   <section data-transition="linear" data-transition-speed="medium">
@@ -415,7 +343,22 @@
 
       <p>A few extra lines for good measure</p>
     </div>
+    <aside class="notes">
+      <p>In Angular, the topic of directives is a large one. In fact, Alex Vanston wrote "Angular Directives", an entire book which explore directives</p>
+    </aside>
   </section>
+
+  <!-- Delivering on the promise of HTML -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Delivering on the promise of HTML</h2>
+    <p>HTML FTW</p>
+    <aside class="notes">
+      <p>The declarative nature of HTML and the ability to extend it using directives is fundemental to what Angular
+        tries to help designers and developers achieve</p>
+      <p>Many of Angular's features are designed first and foremost to support this goal and secondarily to provide the tools required to build non-trivial web applications.</p>
+    </aside>
+  </section>
+
 
 </section>
 
@@ -429,7 +372,7 @@
   </section>
 
   <section data-transition="linear" data-transition-speed="medium">
-    <p>Angular calls these directives. Fow now, you can think of directives as meta data for markup.</p>
+    <p>Angular calls these directives. For now, you can think of directives as meta data for markup.</p>
     <!--@formatter:off-->
     <pre><code>
   !doctype html&gt;
@@ -440,7 +383,7 @@
     &lt;div&gt;
       &lt;label&gt;Name:&lt;/label&gt;
       &lt;input type=&quot;text&quot; ng-model=&quot;yourName&quot;
-      placeholder=&quot;Enter a name here&quot;&gt;
+              placeholder=&quot;Enter a name here&quot;&gt;
       &lt;hr&gt;
       &lt;h1&gt;Hello {{yourName}}!&lt;/h1&gt;
       &lt;/div&gt;
@@ -648,6 +591,86 @@
       <li class="fragment">To put this in context, jQuery 2.1.1 is 84K minified</li>
     </ul>
   </section>
+</section>
+
+<!-- Where did Angular come from? -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Where did Angular come from?</h2>
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <ul>
+      <li>AngularJS was created in 2008 and 2009 by Miško Hevery and Adam Abrons</li>
+      <li>The two set out to build an online JSON storage service hosted at GetAngular.com</li>
+      <li>They eventually decided to scrap the business venture and release Angular as an open source project</li>
+      <li>Adam left the project, but Misko pressed on while working at Google</li>
+    </ul>
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <ul>
+      <li>At Google, Misko meet Brad Green who recruited him to work on the Google Feedback project</li>
+      <li>The project was difficult to work with and at one point Misko claimed he could rewrite the product in two
+        weeks using his personal side project, called Angular
+      </li>
+      <li>At the time Google Feedback had 17,000 lines of code developed over six months by three developers</li>
+      <li>Brad took Misko up on this offer and Misko didn't quite pull it off.</li>
+    </ul>
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <ul>
+      <li>Instead it took him three weeks to rewrite the product and reduce the codebase from 17,000
+        lines to just 1500 lines of code
+      </li>
+      <li>Based on this success, Brad recommended open sourcing the early Angular and recruiting other Googlers to join
+        the project
+      </li>
+      <li>Because the project was open sourced, developers outside of google took notice of the project and started
+        using and contributing to it
+      </li>
+    </ul>
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <ul>
+      <li>One such person turned out to be another Googler, Marc Jacobs from the Google DoubleClick team</li>
+      <li>Marc was part of the Google acquisition of DoubleClick and was tasked to convert a DoubleClick app
+        from Microsoft .NET to the Google Platform
+      </li>
+      <li>Marc, impressed by Angular, devoted a two week sprint to trying the conversion using two parallel approaches:
+        1) Using AngularJS 2) Using Google's GWT
+      </li>
+      <li>Two days into the sprint he completed the project using Angular. Then he tried the same project using GWT and
+        after five days he gave up on it.
+      </li>
+    </ul>
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <p>In October of 2013, the Angular team hosted an internal conference at Google in Mountain View, CA</p>
+
+    <p>They expected around 50 people would attend</p>
+
+    <p>When the conference started there were 197 attendees, presenting 101 project within Google</p>
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <ul>
+      <li>Angular was gaining traction inside and outside of Google</li>
+      <li>The Angular team started tracking how often developers searched for angular relative to other popular
+        frameworks
+      </li>
+    </ul>
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <p>At the 2014, first ever AngularJS conference, Brad and Misko announced that by mid-2013 the popularity of Angular
+      skyrocketed in comparison to other frameworks</p>
+    <img src="images/framework-trends.png">
+  </section>
+
 </section>
 
 <!-- A few Angular tidbits -------------------------------------------------------------------------->
