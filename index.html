@@ -47,9 +47,12 @@
 <!-- Title slide  -------------------------------------------------------------------->
 <section data-transition="cube" data-transition-speed="medium">
   <img style="border: 0; padding: 20px;" src="images/AngularJS-Shield.png">
+
   <h3>YAAP: Yet another AngularJS Presentation</h3>
+
   <p>
-    <small>Presented by <a href="http://cjus.me">Carlos Justiniano</a> / <a href="http://twitter.com/cjus">@cjus</a></small>
+    <small>Presented by <a href="http://cjus.me">Carlos Justiniano</a> / <a href="http://twitter.com/cjus">@cjus</a>
+    </small>
   </p>
 </section>
 
@@ -670,23 +673,49 @@
     <h2>Scope</h2>
     <ul>
       <li>A scope is a JavaScript object</li>
-      <li>It's an execution context for expressions</li>
-      <li>It can hold data, functions and watch expressions fire events</li>
-      <li>It's bound to an angular application</li>
+      <li>Angular assigns a default scope to each angular application</li>
+      <li>Like plain old JS objects, it can hold data, functions, watch expressions and fire events</li>
     </ul>
     <aside class="notes">
-      <p>A scope is a JavaScript object.</p>
-      <p>Angular extends a scope object to apply built-in functions</p>
-      <p>When used with Angular it's an execution context for expressions</p>
-      <p>It can hold data, functions and watch expressions fire events</p>
-      <p>It's bound to an angular application</p>
+      <p>Angular employs a concept called Scope. In many ways Scope is the glue that binds many Angular features.</p>
+      <p>Scope is an execution context used to hold data, functions and perform tasks such as watching expressions for changes and firing events.</p>
+      <p>Beginning Angular developers sometimes confuse scope with their data models. Instead scope is a place where a data model can be stored and shared.</p>
+      <p></p>
     </aside>
   </section>
+
+  <!-- Here's a simple Scope -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Here's a simple Scope</h2>
+    <!--@formatter:off-->
+    <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  &lt;!DOCTYPE html&gt;
+  &lt;html ng-app ng-init=&quot;data.message=&apos;Hello, from your application scope.&apos;;&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;Simple Scope&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h2&gt;Scope says: {{ data.message }}&lt;/h2&gt;
+    &lt;script src=&quot;angular.min.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+    </code></pre>
+    <!--@formatter:on-->
+    <hr>
+    <small class="pre-bold pres-light-yellow-highlight">Source: /samplecode/SimpleScope</small>
+    <aside class="notes">
+      <p></p>
+    </aside>
+
+  </section>
+
 
   <!-- Understanding Scope -------------------------------------------------------------------------->
   <section data-transition="linear" data-transition-speed="medium">
     <h2>Understanding Scope</h2>
     <aside class="notes">
+      <p>A scope is a JavaScript object.</p>
+
       <p>In the last slide we talked about scope being a JavaScript object, however we also learned the scope include helper function to perform various data binding related tasks.</p>
       <p>Angular does this by extending plain JS objects with its own scope object.  This retains the data and functions you've added to your scope in addition to the one's Angular has added.</p>
       <p>Discuss RootScope and Scope</p>
@@ -735,7 +764,7 @@
 
 <!-- Angular Services -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
-  <h2>Angular Services</h2>
+  <h2>Services</h2>
   <aside class="notes">
     Sharing data between controllers using services
   </aside>
@@ -744,7 +773,7 @@
 
 <!-- Angular best practices -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
-  <h2>Angular best practices</h2>
+  <h2>Best practices</h2>
 </section>
 
 <!-- Angular MVC -------------------------------------------------------------------------->
