@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>Nested Controllers</title>
+</head>
+<body >
+  <div ng-controller="myFirstController">
+    <p>FIRST CONTROLLER<br>
+    First controllers message: [ {{data.message}} ]<br>
+    Second controllers message: [ {{data2.message}} ]<br>
+    Third controllers message: [ {{data3.message}} ]</p>
+
+    <div ng-controller="mySecondController">
+      <hr>
+      <p>SECOND CONTROLLER<br>
+      First controllers message: [ {{data.message}} ]<br>
+      Second controllers message: [ {{data2.message}} ]<br>
+      Third controllers message: [ {{data3.message}} ]</p>
+    </div>
+  </div>
+
+  <div ng-controller="myThirdController">
+    <hr>
+    <p>THIRD CONTROLLER<br>
+    First controllers message: [ {{data.message}} ]<br>
+    Second controllers message: [ {{data2.message}} ]<br>
+    Third controllers message: [ {{data3.message}} ]</p>
+  </div>
+
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

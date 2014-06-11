@@ -17,22 +17,18 @@
 ## Key Concepts
 ### Embracing best practices
 ### It's all about the markup!
-### Declaritive programming
-### HTML5 is increasingly declaritive
+### Declarative programming
+### HTML5 is increasingly declarative
 ### HTMl5 Data attribute
-### Delivering on the promise of HTML
-Lookup lee's original vision
+### Extending HTML
 
 ## Important Angular Conventions
-
-## Angular Modules
-### One and only Angular application module
-### Modules as a way of grouping functionality
 
 ## Data Binding
 ### Examples
 ### Data binding and filters
 ### Data binding with CSS classes
+### Did you notice?
 
 ## Scope
 ### Understanding Scope
@@ -41,6 +37,12 @@ Lookup lee's original vision
 
 ## Directives revisited
 ### Extending HTML
+
+## Angular Modules
+* Angular modules provide a place to put things like directives, controller and other things we'll learn about shortly..
+* You could 
+### One and only Angular application module
+### Modules as a way of grouping functionality
 
 ## Controllers
 ## Controllers and Scope

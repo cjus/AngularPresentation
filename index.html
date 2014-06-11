@@ -69,14 +69,14 @@
 
     <p>This presentation is built entirely on HTML, CSS and JavaScript to run inside of your web browser.</p>
 
-    <p>The presentation is mobile and tablet friendly and the entire presentation is available on Github at the link shown on this page</p>
+    <p>The presentation is mobile and tablet friendly and the entire presentation is available on Github at the link
+      shown on this page</p>
 
     <p>All of the sample code featured is available in the samplecode folder within the project</p>
 
     <p>If you find any issue with this presentation drop me an email or better yet, issue a pull request</p>
   </aside>
 </section>
-
 
 <!-- The changing web -------------------------------------------------------------------->
 <!--data-background="images/DSC07942-201309.jpg"-->
@@ -89,7 +89,12 @@
       <li>And increasingly complex web applications were being built</li>
     </ul>
     <aside class="notes">
-      <p>AJAX marked an important shift in the development of the web.</p>
+      <p>Before AJAX platforms like PHP, Python/Django and Ruby/Rails were used to help render web front-ends</p>
+
+      <p>That worked great but required pages to be refreshed to see any data updates.</p>
+
+      <p>By eliminating the need for full-page refreshes, AJAX marked an important shift in the development of the
+        web.</p>
 
       <p>Web applications became more responsive and increasingly more ambitious applications were being built.</p>
 
@@ -154,6 +159,7 @@
     <aside class="notes">
       <p>Angular stands apart from other frameworks in that it is first and foremost about unlocking the potential of
         HTML.</p>
+
       <p>Angular embraces HTML and extends it in ways which feel natural and uncontrived.</p>
 
       <p>In fact, starting Angular developers eventually realize that if HTML and the DOM were more evolved then there
@@ -228,8 +234,7 @@
   <p>Before we dig too deeply into code lets examine a few core concepts...</p>
   <aside class="notes">
     <p>Here is a basic HTML file that uses angular. We'll use this structure through this presentation. At the top of
-      the file we see an ng-app attribute. This is simply a data tag which will be used by the angular script once it
-      loads.</p>
+      the file we see an ng-app attribute. This is simply a data tag which tells which part of the DOM to manage.</p>
 
     <p>Within the bottom of the body tag we see that angular is loaded along with our app.js script.</p>
 
@@ -282,8 +287,12 @@
 
     <aside class="notes">
       <p>It's all about the markup. Well not actually.</p>
+
       <p>However, Angular treats HTML as a first class citizen rather than an ugly girlfriend.</p>
-      <p>This focus on HTML is not misplaced as making HTML more useful and ultimately a pleasure to work is an important achievement</p>
+
+      <p>This focus on HTML is not misplaced as making HTML more useful and ultimately a pleasure to work is an
+        important achievement</p>
+
       <p>Angular makes this possible by embracing declarative programming</p>
     </aside>
 
@@ -419,9 +428,9 @@
   </section>
 
 
-  <!-- Delivering on the promise of HTML -------------------------------------------------------------------------->
+  <!-- Extending HTML -------------------------------------------------------------------------->
   <section data-transition="linear" data-transition-speed="medium">
-    <h2>Delivering on the promise of HTML</h2>
+    <h2>Extending HTML</h2>
 
     <aside class="notes">
       <p>The declarative nature of HTML and the ability to extend it using directives is fundamental to what Angular
@@ -456,12 +465,6 @@
 
     <p>It should go without saying that you shouldn't use these in your own code.</p>
   </aside>
-</section>
-
-<!-- Angular Modules -------------------------------------------------------------------------->
-<section data-transition="linear" data-transition-speed="medium">
-  <h2>Angular Modules</h2>
-  <aside class="notes"></aside>
 </section>
 
 <!-- Data binding -------------------------------------------------------------------------->
@@ -681,6 +684,31 @@
     <p></p>
   </aside>
 </section>
+
+<!-- Did you notice? -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Notice anything missing?</h2>
+  <ul>
+    <li>The HTML is clean, there are no class or id's on the markup</li>
+    <li>We didn't write any JavaScript</li>
+    <li>There was no need to write event handlers</li>
+  </ul>
+  <br><br>
+
+  <h3 class="fragment">What is this magic?</h3>
+  <aside class="notes">
+    <p>You may have noticed that our previous examples were missing a few things we've all taken for granted.</p>
+
+    <p>Absent from the examples are that there are no HTML class or id's</p>
+
+    <p>Also, we haven't written a single line of JavaScript and we didn't have to register any event handlers to support
+      the data binding</p>
+
+    <p>What is this magic? We'll see how this works a bit later.</p>
+  </aside>
+</section>
+
+
 </section>
 
 <!-- Scope -------------------------------------------------------------------------->
@@ -823,26 +851,308 @@
 
 </section>
 
+<!-- Angular Modules -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Angular Modules</h2>
+  <ul>
+    <li>Angular provide Modules as a way of organizing our code</li>
+  </ul>
+
+  <!--@formatter:off-->
+  <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  &lt;!DOCTYPE html&gt;
+  &lt;html ng-app=&quot;myApp&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;Simple Angular Module&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;script src=&quot;angular.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+  </code></pre>
+  <!--@formatter:on-->
+
+  <!--@formatter:off-->
+  <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  angular.module(&apos;myApp&apos;, []);
+  </code></pre>
+  <!--@formatter:on-->
+  <hr>
+  <small class="pre-bold pres-light-yellow-highlight">Source: /samplecode/SimpleModule</small>
+
+  <aside class="notes">
+    <p>Angular provides Modules as a place to group functionality whereby allowing you to organize your code
+      while abiding by best practices such as not polluting the global namespace</p>
+
+    <p>In the first listing above we see that we have now specified a name value to ng-app.
+      This let's angular know that we have an Angular application module called myApp</p>
+
+    <p>In our app.js file we simply call the module function on the Angular object passing it the name of our module and
+      an empty array.</p>
+
+    <p>The empty array is a placeholder to specify any dependencies our module might have.</p>
+
+    <p>An important takeaway here is that there is global angular object which was introduced when we loaded angular on
+      our HTML page using the script element.</p>
+
+    <p>When angular loaded it looked for the ng-app data attribute (aka directive) and found that we provided a named
+      application module called myApp.</p>
+
+    <p>Lastly, we created a module in our app.js file.</p>
+
+    <p>We'll revisit modules a big later.</p>
+  </aside>
+</section>
 
 <!-- Controllers -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
+<section data-transition="linear" data-transition-speed="medium">
   <h2>Controllers</h2>
+  <!--@formatter:off-->
+  <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  &lt;!DOCTYPE html&gt;
+  &lt;html ng-app=&quot;myApp&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;Simple Controller&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body &gt;
+    &lt;div ng-controller=&quot;myFirstController&quot;&gt;
+      {{data.message}}
+    &lt;/div&gt;
+    &lt;script src=&quot;angular.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+  </code></pre>
+  <!--@formatter:on-->
+
+  <!--@formatter:off-->
+  <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  angular.module(&apos;myApp&apos;, [])
+    .controller(&apos;myFirstController&apos;, function($scope) {
+      $scope.data = {
+        message: &apos;Hello from a simple controller!&apos;
+      };
+    });
+  </code></pre>
+  <!--@formatter:on-->
+
+  <hr>
+  <small class="pre-bold pres-light-yellow-highlight">Source: /samplecode/SimpleModule</small>
+
+  <aside class="notes">
+    <p>Another organizational feature angular provides is controllers.</p>
+
+    <p>In controllers we can implement our applications business logic and is the C in Model View Controller
+      paradigm.</p>
+
+    <p>We specify controllers in our HTML markup using the Angular ng-controller directive.</p>
+
+    <p>In our example here we've added the ng-controller directive to a div element.</p>
+
+    <p>This means that the controller named myFirstController will operate on the div element and anything inside of
+      it.</p>
+
+    <p>We say that the myFirstController is scoped around or to the div element.</p>
+
+    <p>Angular actually creates a new scope for our controller to use.</p>
+
+    <p>Notice that we have a data bound expression (there's that curly mustache again) around data.message.</p>
+
+    <p>We defined data.message in our controller using the code shown in the second code listing.</p>
+
+    <p>There we've simply called the angular object's controller function to define our new controller.</p>
+
+    <p>The second parameter to controller is an anonymous function which includes a $scope parameter.</p>
+
+    <p>Angular is responsible for invoking our anonymous function and passing a new scope to our controller.</p>
+
+    <p>From that point on we're able to attach data and functions to our scope object for use in data binding and
+      other operations.</p>
+
+    <p>You see how I've chained the controller call to the result of the module call above.</p>
+
+    <p>As you can see, Angular object functions are chainable. But why did I do this?</p>
+  </aside>
   <aside class="notes"></aside>
 </section>
 
 <!-- Controllers and scope -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
-  <h2>Controllers and scope</h2>
+  <h2>Controllers and Scope</h2>
+  <img style="border: 0; padding: 20px;" src="images/Simple_Controller.png">
   <aside class="notes">
-    <p>Discuss scope inheritance</p>
+    <p>Using a chrome plugin called Batarang we can see that Angular did indeed create a new scope. Scope 003.</p>
+
+    <p>Here we see the data object we created to include our message.</p>
+
+    <p>This screen shot also reveals an important point, that scopes can be nested.</p>
+
+    <p>Because scopes are essentially JavaScript objects they can be inherited.</p>
+
+    <p>If we defined one controller within another, the second one would inherit the values of the first,</p>
+
+    <p>but the first would not have access to the inner scope of the nested controller.</p>
+  </aside>
+</section>
+
+<!-- Chaining to modules -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Chaining to modules</h2>
+  <!--@formatter:off-->
+  <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  var myApp = angular.module(&apos;myApp&apos;, []);
+  myApp.controller(&apos;myFirstController&apos;, function($scope) {
+    $scope.data = {
+      message: &apos;Hello from a simple controller!&apos;
+    };
+  });
+  </code></pre>
+  <!--@formatter:on-->
+
+  <!--@formatter:off-->
+  <pre class="fragment"><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  angular.module(&apos;myApp&apos;, [])
+    .controller(&apos;myFirstController&apos;, function($scope) {
+      $scope.data = {
+        message: &apos;Hello from a simple controller!&apos;
+      };
+    });
+  </code></pre>
+  <!--@formatter:on-->
+
+  <aside class="notes">
+    <p>After all, I could have just done this instead of chaining.</p>
+
+    <p>Chaining is cleaner as it doesn't create a new global variable called myApp which needs to be passed around.</p>
+
+    <p>Again, Angular is all about best practices!</p>
+  </aside>
+</section>
+
+<!-- Nested controllers and Scope -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h3>Nested controllers and Scope (HTML)</h3>
+  <!--@formatter:off-->
+    <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  &lt;div ng-controller=&quot;myFirstController&quot;&gt;
+    &lt;p&gt;FIRST CONTROLLER&lt;br&gt;
+    First controllers message: [ {{data.message}} ]&lt;br&gt;
+    Second controllers message: [ {{data2.message}} ]&lt;br&gt;
+    Third controllers message: [ {{data3.message}} ]&lt;/p&gt;
+
+    &lt;div ng-controller=&quot;mySecondController&quot;&gt;
+      &lt;hr&gt;
+      &lt;p&gt;SECOND CONTROLLER&lt;br&gt;
+      First controllers message: [ {{data.message}} ]&lt;br&gt;
+      Second controllers message: [ {{data2.message}} ]&lt;br&gt;
+      Third controllers message: [ {{data3.message}} ]&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div ng-controller=&quot;myThirdController&quot;&gt;
+    &lt;hr&gt;
+    &lt;p&gt;THIRD CONTROLLER&lt;br&gt;
+    First controllers message: [ {{data.message}} ]&lt;br&gt;
+    Second controllers message: [ {{data2.message}} ]&lt;br&gt;
+    Third controllers message: [ {{data3.message}} ]&lt;/p&gt;
+  &lt;/div&gt;
+    </code></pre>
+    <!--@formatter:on-->
+  <hr>
+  <small class="pre-bold pres-light-yellow-highlight">Source: /samplecode/NestedControllers</small>
+
+  <aside class="notes">
+    <p>Ok, let's get back to our regularly schedule program.</p>
+
+    <p>In our earlier examples we saw how controllers get a scope passed into them.</p>
+
+    <p>But what happens when controllers are nested? And how does scope visibility come into play?</p>
+
+    <p>In this example we define three controllers myFirst, Second and Third Controller</p>
+
+    <p>Our second controller is nested inside of our first controller, while the third controller outside of both</p>
+
+    <p>Before we discuss how this impacts scope, let's look at how we define our three controllers in JavaScript</p>
+  </aside>
+</section>
+
+<!-- Nested controllers and Scope -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h3>Nested controllers and Scope (JavaScript)</h3>
+  <!--@formatter:off-->
+    <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  angular.module(&apos;myApp&apos;, [])
+    .controller(&apos;myFirstController&apos;, function($scope) {
+      $scope.data = {
+        message: &apos;Hello from the first controller!&apos;
+      };
+    })
+    .controller(&apos;mySecondController&apos;, function($scope) {
+      $scope.data2 = {
+        message: &apos;Hello from the second controller!&apos;
+      };
+    })
+    .controller(&apos;myThirdController&apos;, function($scope) {
+      $scope.data3 = {
+        message: &apos;Hello from the third controller!&apos;
+      };
+    });
+    </code></pre>
+    <!--@formatter:on-->
+  <hr>
+  <small class="pre-bold pres-light-yellow-highlight">Source: /samplecode/NestedControllers</small>
+
+  <aside class="notes">
+    <p>So here we chain our three controllers to our Angular application module.</p>
+
+    <p>In each controller we add a data item with a custom message.</p>
+
+    <p>Notice that there isn't any nesting specified here! This is only definition</p>
+
+    <p>Nesting is specified in a declarative manner in our HTML.</p>
+
+    <p>Let's use Batarang to examine scope behaviors.</p>
+  </aside>
+</section>
+
+<!-- Using Batarang to confirm our scope nesting -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <img style="border: 0; padding: 20px;" src="images/Nested_Controllers.png">
+  <aside class="notes">
+    <p>At the top, we see the output from our three controllers</p>
+
+    <p>Each tries to display the data.message(x) value from its accessible scope.</p>
+
+    <p>The goal is to determine what scope data each controller has access to.</p>
+
+    <p>The first controller has access to its own message but can't see the message of it's nested (child) controller,
+      nor the value of the third and sibling controller.</p>
+
+    <p>The second controller which is nested inside of the first controller, inherits visibility to it's parent's
+      (outter) controller message and as expected has access to its own message.</p>
+
+    <p>The third controller is outside of both the first and second controller and thus only see's its own scope
+      message.</p>
+
+    <p>The Angular Batarang plugin shows how the scopes are setup and visually confirms the nesting relationships</p>
   </aside>
 </section>
 
 <!-- Controllers and methods -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
   <h2>Controllers and methods</h2>
-  <aside class="notes"></aside>
+  <aside class="notes">
+    <p>The last controller topic we'll examine for now is about adding methods to scopes</p>
+
+    <p>This is expecially useful as it means that methods can be made accessible to directives and other controllers
+      which might have visibility into the scope.</p>
+  </aside>
 </section>
+
+</section>
+
 
 <!-- Dependency Injection -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
@@ -853,7 +1163,6 @@
 
 </section>
 
-
 <!-- Angular Services -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
   <h2>Services</h2>
@@ -861,7 +1170,6 @@
     Sharing data between controllers using services
   </aside>
 </section>
-
 
 <!-- Angular best practices -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
@@ -941,7 +1249,7 @@
   </section>
 </section>
 
-<!-- Thinking about your application in terms of Angular -------------------------------------------------------------------->
+<!-- Thinking about your application in terms of Angular ----------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
   <section data-transition="linear" data-transition-speed="medium">
     <h2>Thinking about your application in terms of Angular</h2>
@@ -1210,7 +1518,6 @@
 
 
 </div>
-<!-- slides -->
 </div>
 
 
