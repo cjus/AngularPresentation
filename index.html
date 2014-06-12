@@ -525,7 +525,9 @@
   <h2>Important Angular conventions</h2>
   <ul>
     <li>Angular uses the <span class="pres-bold pres-red">ng-</span> prefix as a namespace</li>
-    <li>It also prefixes the <span class="pres-bold pres-red">$</span> symbol in front of its providers, modules and services</li>
+    <li>It also prefixes the <span class="pres-bold pres-red">$</span> symbol in front of its providers, modules and
+      services
+    </li>
     <li>Best to avoid using those in your own code</li>
   </ul>
   <aside class="notes">
@@ -1218,14 +1220,28 @@
 
 <!-- Controllers and methods -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
-  <h2>Controllers and methods</h2>
+  <h4>Controllers and methods</h4>
+
+  <h2>!Function.prototype</h2>
+
   <aside class="notes">
-    <p>The last controller topic we'll examine for now is about adding methods to controllers and scopes</p>
+    <p>The last controller topic we'll examine concerns methods and scopes</p>
+
+    <p>We learned that an Angular Controller is a JavaScript constructor function.</p>
+
+    <p>So you might expect to use prototypical inheritance to setup member functions.</p>
+
+    <p>However that's not really the Angular way.</p>
+
+    <p>In Angular, controllers are used to setup the initial state of a scope and to add behaviors to the scope.</p>
 
     <p>This is especially useful as it means that methods can be made accessible to directives and other controllers
       which might have visibility into the scope.</p>
 
-    <p>There are two ways you can add methods: directly to the controller or to he controller's scope.</p>
+    <p>When you need to create lots of functions to organize your code, you should do so in a provider, service, or
+      factory.</p>
+
+    <p>That will help avoid creating monolithic controllers which simply attach lots of functions to a scope.</p>
   </aside>
 </section>
 
@@ -1234,26 +1250,288 @@
 <!-- Dependency Injection -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
   <h2>Dependency Injection</h2>
+  <!--@formatter:off-->
+  <pre class="fragment"><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  angular.module('myCoolApp', []);
+  </code></pre>
+  <!--@formatter:on-->
+
+  <!--@formatter:off-->
+  <pre class="fragment"><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  angular.module('myCoolApp', ['ngRoute']);
+  </code></pre>
+  <!--@formatter:on-->
+
+  <!--@formatter:off-->
+  <pre class="fragment"><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  angular.module('myCoolApp', ['ngRoute']);
+    .config(function($routeProvider) {
+      'use strict';
+      $routeProvider
+        .when('/', {
+          templateUrl: 'views/main.html',
+          controller: 'MainCtrl'
+        })
+        .otherwise({
+          redirectTo: '/'
+        });
+    });
+  </code></pre>
+  <!--@formatter:on-->
+
   <aside class="notes">
-    <p></p>
+    <p>Dependency Injection is a design pattern that describes how a components can receive their dependencies</p>
+
+    <p>This prevents needing complex component loaders and methods of resolving circular dependencies.</p>
+
+    <p>The gist of this is that a dependency injection system provides methods for registering components and then
+      passes those components where they are required.</p>
+
+    <p>A benefit of this is that components don't have to manage locating other components - they're simply available
+      when needed.</p>
+
+    <p>Lets have a closer look at this. Earlier we saw how we create our Angular application module using the following
+      code.</p>
+
+    <p>The empty array on the right meant that we were not requiring any dependencies for our app.</p>
+
+    <p>However, lets say that we wanted to take advantage of Angular's view routing
+      mechanism.</p>
+
+    <p>All we need to do is specify ngRoute in our array of dependencies.</p>
+
+    <p>Then we'll write code which uses the ngRoute dependency and configure our application's routes.</p>
+
+    <p>You can see here that the first parameter to the application config function is $routeProvider.</p>
+
+    <p>Angular takes care of ensuring that it passes an ngRoute provider to the anonymous function.</p>
+
+    <p>We simply use it without having to load it ourselves.</p>
+
+    <p>We'll continue discussing dependency injection in the next section on Angular Providers.</p>
   </aside>
 
 </section>
 
 <!-- Angular Providers -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
-  <h2>Providers</h2>
-  <ul>
-    <li>Angular has a concept called providers which is used to implement factories and services.</li>
-  </ul>
-  <aside class="notes">
-    <p>https://docs.angularjs.org/guide/providers</p>
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Providers</h2>
+    <ul>
+      <li>Angular has a concept called providers which is also used to implement factories and services</li>
+      <li>Using them promotes cleaner and more testable code</li>
+      <li>And better yet, they're injectable!</li>
+    </ul>
+    <aside class="notes">
+      <p>Angular has a concept called providers which is used to implement factories and services.</p>
 
-    <p>Angular has a concept called providers which is used to implement factories and services.</p>
+      <p>This allows you to build reusable library-like components with their own function API.</p>
 
-    <p>Sharing data between controllers using services</p>
+      <p>They help promote cleaner and better structured code which is both maintainable and testable.</p>
 
-  </aside>
+      <p>Much of the functionality that Angular offers comes to us via providers.</p>
+
+      <p>We're encouraged to not only leverage the existing providers, but also to create our own.</p>
+      <p>Part of the power behind Providers is that they automatically link to the dependency injection system making it easy for you to use your providers, services and factories.</p>
+    </aside>
+  </section>
+
+  <!-- Simple service -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Simple Service and Factory</h2>
+    <h4>HTML</h4>
+    <!--@formatter:off-->
+    <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  &lt;!DOCTYPE html&gt;
+  &lt;html ng-app=&quot;myApp&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;Simple Service and Factory&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body &gt;
+    &lt;div ng-controller=&quot;myController&quot;&gt;
+      &lt;p&gt;Get User from Service: {{ userFromService }}&lt;/p&gt;
+      &lt;p&gt;Create new user from Factory: {{ createUserWithFactory('Anatoly', 'Karpov') }}&lt;/p&gt;
+      &lt;p&gt;Create another new user from Factory: {{ createUserWithFactory('Magnus','Carlsen') }}&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script src=&quot;angular.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+    </code></pre>
+    <!--@formatter:on-->
+    <hr>
+    <small class="pre-bold pres-light-yellow-highlight">Source: /samplecode/SimpleServiceAndFactory</small>
+    <aside class="notes">
+      <p>Here is the HTML for our simple service and factory example.</p>
+      <p>The first paragraph element simply displays the userFromService data item from the current scope.</p>
+      <p>The second and third paragraphs call two functions defined on the scope.</p>
+      <p>This is basically what we're already familar with.</p>
+    </aside>
+  </section>
+
+  <!-- Simple service -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Simple Service and Factory</h2>
+    <h4>JavaScript</h4>
+    <!--@formatter:off-->
+    <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  angular.module('myApp', [])
+    .controller('myController', ['$scope', 'FirstService', 'FirstFactory',
+      function($scope, myFirstService, myFirstFactory) {
+        $scope.userFromService = myFirstService.getUser();
+        $scope.createUserWithFactory = function(firstName, lastName) {
+          var user = myFirstFactory.createUser(firstName, lastName);
+          return JSON.stringify(user);
+        };
+    }])
+    .service('FirstService', function() {
+      var user = {
+        "firstName": "Garry",
+        "lastName": " Kasparov"
+      };
+      this.getUser = function() {
+        return JSON.stringify(user);
+      };
+    })
+    .factory('FirstFactory', function() {
+      return {
+        createUser: function(firstName, lastName) {
+          return {
+            "firstName": firstName,
+            "lastName": lastName
+          };
+        }
+      };
+    });
+    </code></pre>
+    <!--@formatter:on-->
+    <hr>
+    <small class="pre-bold pres-light-yellow-highlight">Source: /samplecode/SimpleServiceAndFactory</small>
+
+    <aside class="notes">
+      <p>The JavaScript portion is much more interesting.</p>
+      <p>Here we define our controller.  The big difference here is that we pass FirstService and FirstFactory string into our controller definition.</p>
+      <p>This is dependency injection at work. Angular looks for providers which we've defined by those names.</p>
+      <p>Just below our controller we see a service definition. Noticed that it isn't very different from controllers we've created.</p>
+      <p>Our FirstService returns an object which has a getUser member. Services are essentially singltons which return data which they create or already hav access to.</p>
+      <p>The object services return is created once and return however many times it's called.</p>
+      <p>Keep in mind that this doesn't mean services return the same data when its functions are called... only that the object they return is created once.</p>
+      <p>Factories are different in that Angular creates a new object to return each time. If invoked twice, each object returned will be a new instance.</p>
+    </aside>
+
+  </section>
+
+  <!--  -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Simple Service and Factory</h2>
+    <h4>Output</h4>
+    <!--@formatter:off-->
+    <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  Get User from Service: {"firstName":"Garry","lastName":" Kasparov"}
+
+  Create new user from Factory: {"firstName":"Anatoly","lastName":"Karpov"}
+
+  Create another new user from Factory: {"firstName":"Magnus","lastName":"Carlsen"}
+    </code></pre>
+    <!--@formatter:on-->
+
+    <aside class="notes">
+      <p>Here's the output from our Service and Factory program.</p>
+    </aside>
+  </section>
+
+  <!-- So what then is a provider? -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>So what then is a provider?</h2>
+    <ul>
+      <li>A service is a module which returns a single instance of an object</li>
+      <li>A factory is a module which returns a new object each time it's referenced</li>
+      <li>So what then is a provider?</li>
+      <li class="fragment">A provider is a module which is more comprehensive than a service or factory and can be configured before it's made available</li>
+    </ul>
+    <aside class="notes">
+      <p>We discussed that Angular has providers, services and factories</p>
+      <p>A provider is a module which Angular users to implement services and factories.</p>
+      <p>When you ask Angular to create a service it essentially uses a provider to create it. The same for when you requested a factory.</p>
+      <p>So, services and factories are nothing more than syntax sugar (i.e. simpler versions) of providers.</p>
+      <p>Providers themselves are more powerful in that they can behave differently than a service or factory and can be configured before they're made available.</p>
+      <p>Let's take a look at creating and configuring our own provider.</p>
+    </aside>
+  </section>
+
+  <!-- StartDate Provider -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>StartDate Provider</h2>
+    <h4>HTML</h4>
+    <!--@formatter:off-->
+    <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  &lt;!DOCTYPE html&gt;
+  &lt;html ng-app=&quot;myApp&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;Provider&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body &gt;
+    &lt;div ng-controller=&quot;myController&quot;&gt;
+      &lt;p&gt;Get start Date: {{ startDate }}&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script src=&quot;angular.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+    </code></pre>
+    <!--@formatter:on-->
+    <hr>
+    <small class="pre-bold pres-light-yellow-highlight">Source: /samplecode/Provider</small>
+
+    <aside class="notes">
+      <p>The HTML itself isn't special.  Let's look at the app.js file.</p>
+    </aside>
+  </section>
+
+  <!-- StartDate Provider -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>StartDate Provider</h2>
+    <h4>JavaScript</h4>
+    <!--@formatter:off-->
+    <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  angular.module('myApp', [])
+    // controller
+    .controller('myController', ['$scope', 'StartDate',
+      function($scope, myDateProvider) {
+        $scope.startDate = myDateProvider.getStartDate();
+      }])
+
+    // provider
+    .provider('StartDate', function() {
+      this.startDate = new Date();
+      this.$get = function() {
+        var startDate = this.startDate;
+        return {
+          getStartDate: function() {
+            return startDate;
+          }
+        };
+      };
+      this.setStartDate = function(newDate) {
+         this.startDate = newDate;
+      };
+    })
+
+    // config
+    .config(function(StartDateProvider) {
+      //StartDateProvider.setStartDate(new Date("October 13, 1975 11:13:00"));
+    });
+    </code></pre>
+    <!--@formatter:on-->
+    <hr>
+    <small class="pre-bold pres-light-yellow-highlight">Source: /samplecode/Provider</small>
+
+    <aside class="notes">
+      <p></p>
+    </aside>
+  </section>
+
+
 </section>
 
 <!-- Angular best practices -------------------------------------------------------------------------->
@@ -1352,7 +1630,7 @@
   </section>
 </section>
 
-<!-- The Angular Story? -------------------------------------------------------------------------->
+<!-- The Angular Story -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
   <section data-transition="linear" data-transition-speed="medium">
     <h2>The Angular Story</h2>
@@ -1368,9 +1646,11 @@
       <p>AngularJS was created in 2008 and 2009 by Miško Hevery and Adam Abrons</p>
 
       <p>The two set out to build an online JSON storage service which they hosted under GetAngular.com</p>
+
       <p>The value proposition was to simplify building online applications with pay as you go data storage.</p>
 
-      <p>They eventually decided to scrap the business venture, but Angular continued to evolve and was eventually open sourced.</p>
+      <p>They eventually decided to scrap the business venture, but Angular continued to evolve and was eventually open
+        sourced.</p>
 
       <p>Adam left the project, but Misko pressed on while working at Google</p>
     </aside>
@@ -1428,9 +1708,9 @@
       <li>Angular proved easier to use</li>
     </ul>
     <aside class="notes">
-      <p>One such person turned out to be another Googler, Marc Jacobs from the Google DoubleCpck team</p>
+      <p>One such person turned out to be another Googler, Marc Jacobs from the Google DoubleClick team</p>
 
-      <p>Marc was part of the Google acquisition of DoubleCpck and was tasked to convert a DoubleCpck app
+      <p>Marc was part of the Google acquisition of DoubleClick and was tasked to convert a DoubleClick app
         from Microsoft .NET to the Google Platform
       </p>
 
@@ -1577,6 +1857,7 @@
 <section data-transition="linear" data-transition-speed="medium">
   <h2>Resources</h2>
 
+  <!--https://github.com/angular/angular.js-->
   <!--https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.js-->
   <!--http://www.ng-newsletter.com/-->
   <!--http://www.fse.guru/angularjs-code-guidelines-->
@@ -1618,8 +1899,8 @@
     transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
 
     // Parallax scrolling
-    // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-    // parallaxBackgroundSize: '2100px 900px',
+    //    parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+    //    parallaxBackgroundSize: '2100px 900px',
 
     leap: {
       //gestureDelay: 1000,

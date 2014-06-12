@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>Simple Service and Factory</title>
+</head>
+<body >
+  <div ng-controller="myController">
+    <p>Get User from Service: {{ userFromService }}</p>
+    <p>Create new user from Factory: {{ createUserWithFactory('Anatoly', 'Karpov') }}</p>
+    <p>Create another new user from Factory: {{ createUserWithFactory('Magnus','Carlsen') }}</p>
+  </div>
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
