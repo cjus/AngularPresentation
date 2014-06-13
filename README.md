@@ -8,7 +8,7 @@ I played around with RevealJS a while back and felt it would be a perfect platfo
 
 The resulting presention doesn't cover all of Angular. In fact, I specifically left out a great deal in order to make the presentation mentally digestable.
 
-## Running locally                      ˆ
+## Running locally
 
 You can run this presentation locally by installing Grunt.
 
