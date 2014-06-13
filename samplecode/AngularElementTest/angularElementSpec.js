@@ -5,7 +5,7 @@ describe('Angular element and expression test', function() {
   //beforeEach(module("myApp"));
   beforeEach(inject(function($compile, $rootScope) {
     $scope = $rootScope;
-    element = angular.element("<div>{{2 + 2}}");
+    element = angular.element("<div>{{2 + 2}}</div>");
     element = $compile(element)($rootScope);
     $scope.$digest();
   }));

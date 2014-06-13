@@ -1833,9 +1833,30 @@
   </section>
 
 
-  <!-- Testing directives -------------------------------------------------------------------------->
+  <!-- Testing Angular -------------------------------------------------------------------------->
   <section data-transition="linear" data-transition-speed="medium">
-    <h3>Testing directives</h3>
+    <h3>Testing Angular</h3>
+    <!--@formatter:off-->
+    <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  describe('Angular element and expression test', function() {
+    var element
+      , $scope;
+
+    //beforeEach(module(&quot;myApp&quot;));
+    beforeEach(inject(function($compile, $rootScope) {
+      $scope = $rootScope;
+      element = angular.element(&quot;&lt;div&gt;{{2 + 2}}&lt;/div&gt;&quot;);
+      element = $compile(element)($rootScope);
+      $scope.$digest();
+    }));
+
+    it('should equal 4', function() {
+      expect(element.html()).toBe(&quot;4&quot;);
+    });
+  });
+    </code></pre>
+    <!--@formatter:on-->
+
   </section>
 
   <!-- Testing controllers -------------------------------------------------------------------------->
