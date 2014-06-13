@@ -92,7 +92,7 @@
       <li>And increasingly complex web applications were being built</li>
     </ul>
     <aside class="notes">
-      <p>Before AJAX platforms like PHP, Python/Django and Ruby/Rails were used to help render web front-ends</p>
+      <p>Before AJAX, platforms like PHP, Python/Django and Ruby/Rails were used to help render web front-ends</p>
 
       <p>That worked great but required pages to be refreshed to see any data updates.</p>
 
@@ -547,7 +547,7 @@
     <li>Updated in real-time as data changes</li>
   </ul>
   <aside class="notes">
-    <p>Angular supports the ability to bind data to markup and to bi-directionally update that data when the data
+    <p>Angular supports the ability to bind data to markup and to bi-directionally update the markup when the data
       changes.</p>
 
     <p>Let's take a closer look.</p>
@@ -627,7 +627,7 @@
     <p>Those expressions can use data values you define. It's important to note that this isn't JavaScript, they're
       expressions which Angular parses and makes sense of.</p>
 
-    <p>The beauty of this is that has the data values change the page updates without requiring a round trip to a
+    <p>The beauty of this is that as the data values change, the page updates without requiring a round trip to a
       backend server.</p>
   </aside>
 </section>
@@ -733,7 +733,7 @@
   <small class="pre-bold pres-light-yellow-highlight">Source: /samplecode/DataBindingWithClasses</small>
 
   <aside class="notes">
-    <p>There's a lot more we can do with data binding. But we'll need to move on...</p>
+    <p>There's a lot more we can do with data binding.</p>
   </aside>
 </section>
 
@@ -957,7 +957,7 @@
 
     <p>The empty array is a placeholder to specify any dependencies our module might have.</p>
 
-    <p>An important takeaway here is that there is global angular object which was introduced when we loaded angular on
+    <p>An important takeaway here is that there is a global angular object which was introduced when we loaded angular on
       our HTML page using the script element.</p>
 
     <p>When angular loaded it looked for the ng-app data attribute (aka directive) and found that we provided a named
@@ -965,7 +965,7 @@
 
     <p>Lastly, we created a module in our app.js file.</p>
 
-    <p>We'll revisit modules a big later.</p>
+    <p>We'll revisit modules a bit later.</p>
   </aside>
 </section>
 
@@ -1008,8 +1008,7 @@
   <aside class="notes">
     <p>Another organizational feature angular provides is controllers.</p>
 
-    <p>In controllers we can implement our applications business logic and is the C in Model View Controller
-      paradigm.</p>
+    <p>Controllers are the C in Model/View/Controller. In controllers we can implement our applications business logic.</p>
 
     <p>We specify controllers in our HTML markup using the Angular ng-controller directive.</p>
 
@@ -1040,25 +1039,6 @@
     <p>As you can see, Angular object functions are chainable. But why did I do this?</p>
   </aside>
   <aside class="notes"></aside>
-</section>
-
-<!-- Controllers and scope -------------------------------------------------------------------------->
-<section data-transition="linear" data-transition-speed="medium">
-  <h2>Controllers and Scope</h2>
-  <img style="border: 0; padding: 20px;" src="images/Simple_Controller.png">
-  <aside class="notes">
-    <p>Using a chrome plugin called Batarang we can see that Angular did indeed create a new scope. Scope 003.</p>
-
-    <p>Here we see the data object we created to include our message.</p>
-
-    <p>This screen shot also reveals an important point, that scopes can be nested.</p>
-
-    <p>Because scopes are essentially JavaScript objects they can be inherited.</p>
-
-    <p>If we defined one controller within another, the second one would inherit the values of the first,</p>
-
-    <p>but the first would not have access to the inner scope of the nested controller.</p>
-  </aside>
 </section>
 
 <!-- Chaining to modules -------------------------------------------------------------------------->
@@ -1092,6 +1072,25 @@
     <p>Chaining is cleaner as it doesn't create a new global variable called myApp which needs to be passed around.</p>
 
     <p>Again, Angular is all about best practices!</p>
+  </aside>
+</section>
+
+<!-- Controllers and scope -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Controllers and Scope</h2>
+  <img style="border: 0; padding: 20px;" src="images/Simple_Controller.png">
+  <aside class="notes">
+    <p>Using a chrome plugin called Batarang we can see that Angular did indeed create a new scope. Scope 003.</p>
+
+    <p>Here we see the data object we created to include our message.</p>
+
+    <p>This screen shot also reveals an important point, that scopes can be nested.</p>
+
+    <p>Because scopes are essentially JavaScript objects they can be inherited.</p>
+
+    <p>If we defined one controller within another, the second one would inherit the values of the first,</p>
+
+    <p>but the first would not have access to the inner scope of the nested controller.</p>
   </aside>
 </section>
 
