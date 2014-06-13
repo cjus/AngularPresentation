@@ -147,7 +147,10 @@
     </ul>
     <aside class="notes">
       <p>Frameworks like Backbone, Ember and Knockout are great for building single page web applications.</p>
-      <p>However, as an application grows older frameworks require developers to do more work to keep their applications maintanable.</p>
+
+      <p>However, as an application grows older frameworks require developers to do more work to keep their applications
+        maintanable.</p>
+
       <p></p>
     </aside>
   </section>
@@ -526,31 +529,6 @@
   </aside>
 </section>
 
-</section>
-
-<!-- Two important Angular conventions -------------------------------------------------------------------------->
-<section data-transition="linear" data-transition-speed="medium">
-  <h2>Important Angular conventions</h2>
-  <ul>
-    <li>Angular uses the <span class="pres-bold pres-red">ng-</span> prefix as a namespace</li>
-    <li>It also prefixes the <span class="pres-bold pres-red">$</span> symbol in front of its providers, modules and
-      services
-    </li>
-    <li>Best to avoid using those in your own code</li>
-  </ul>
-  <aside class="notes">
-    <p>As we prepare to explore Angular code keep in mind that Angular prefixes its directives with the an NG
-      prefix.</p>
-
-    <p>People often ask why the ng prefix? The reason is because NG sounds more like Angular than AN or AG.</p>
-
-    <p>Also, and this is somewhat unfortunate for jQuery developers, Angular prefixes many of its services with a dollar
-      symbol.</p>
-
-    <p>If I had to guess, and this may be a real strength... the $ symbol could stand for the S in service.</p>
-
-    <p>It should go without saying that you shouldn't use these in your own code.</p>
-  </aside>
 </section>
 
 <!-- Data binding -------------------------------------------------------------------------->
@@ -1323,32 +1301,34 @@
 
 <!-- Angular Providers -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
-  <section data-transition="linear" data-transition-speed="medium">
-    <h2>Providers</h2>
-    <ul>
-      <li>Angular has a concept called providers which is also used to implement factories and services</li>
-      <li>Using them promotes cleaner and more testable code</li>
-      <li>And better yet, they're injectable!</li>
-    </ul>
-    <aside class="notes">
-      <p>Angular has a concept called providers which is used to implement factories and services.</p>
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Providers</h2>
+  <ul>
+    <li>Angular has a concept called providers which is also used to implement factories and services</li>
+    <li>Using them promotes cleaner and more testable code</li>
+    <li>And better yet, they're injectable!</li>
+  </ul>
+  <aside class="notes">
+    <p>Angular has a concept called providers which is used to implement factories and services.</p>
 
-      <p>This allows you to build reusable library-like components with their own function API.</p>
+    <p>This allows you to build reusable library-like components with their own function API.</p>
 
-      <p>They help promote cleaner and better structured code which is both maintainable and testable.</p>
+    <p>They help promote cleaner and better structured code which is both maintainable and testable.</p>
 
-      <p>Much of the functionality that Angular offers comes to us via providers.</p>
+    <p>Much of the functionality that Angular offers comes to us via providers.</p>
 
-      <p>We're encouraged to not only leverage the existing providers, but also to create our own.</p>
-      <p>Part of the power behind Providers is that they automatically link to the dependency injection system making it easy for you to use your providers, services and factories.</p>
-    </aside>
-  </section>
+    <p>We're encouraged to not only leverage the existing providers, but also to create our own.</p>
 
-  <!-- Simple service -------------------------------------------------------------------------->
-  <section data-transition="linear" data-transition-speed="medium">
-    <h2>Simple Service and Factory</h2>
-    <h4>HTML</h4>
-    <!--@formatter:off-->
+    <p>Part of the power behind Providers is that they automatically link to the dependency injection system making it
+      easy for you to use your providers, services and factories.</p>
+  </aside>
+</section>
+
+<!-- Simple service -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Simple Service and Factory</h2>
+  <h4>HTML</h4>
+  <!--@formatter:off-->
     <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
   &lt;!DOCTYPE html&gt;
   &lt;html ng-app=&quot;myApp&quot;&gt;
@@ -1367,21 +1347,24 @@
   &lt;/html&gt;
     </code></pre>
     <!--@formatter:on-->
-    <hr>
-    <small class="pre-bold pres-light-yellow-highlight">Source: /samplecode/SimpleServiceAndFactory</small>
-    <aside class="notes">
-      <p>Here is the HTML for our simple service and factory example.</p>
-      <p>The first paragraph element simply displays the userFromService data item from the current scope.</p>
-      <p>The second and third paragraphs call two functions defined on the scope.</p>
-      <p>This is basically what we're already familar with.</p>
-    </aside>
-  </section>
+  <hr>
+  <small class="pre-bold pres-light-yellow-highlight">Source: /samplecode/SimpleServiceAndFactory</small>
+  <aside class="notes">
+    <p>Here is the HTML for our simple service and factory example.</p>
 
-  <!-- Simple service -------------------------------------------------------------------------->
-  <section data-transition="linear" data-transition-speed="medium">
-    <h2>Simple Service and Factory</h2>
-    <h4>JavaScript</h4>
-    <!--@formatter:off-->
+    <p>The first paragraph element simply displays the userFromService data item from the current scope.</p>
+
+    <p>The second and third paragraphs call two functions defined on the scope.</p>
+
+    <p>This is basically what we're already familar with.</p>
+  </aside>
+</section>
+
+<!-- Simple service -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Simple Service and Factory</h2>
+  <h4>JavaScript</h4>
+  <!--@formatter:off-->
     <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
   angular.module('myApp', [])
     .controller('myController', ['$scope', 'FirstService', 'FirstFactory',
@@ -1413,27 +1396,39 @@
     });
     </code></pre>
     <!--@formatter:on-->
-    <hr>
-    <small class="pre-bold pres-light-yellow-highlight">Source: /samplecode/SimpleServiceAndFactory</small>
+  <hr>
+  <small class="pre-bold pres-light-yellow-highlight">Source: /samplecode/SimpleServiceAndFactory</small>
 
-    <aside class="notes">
-      <p>The JavaScript portion is much more interesting.</p>
-      <p>Here we define our controller.  The big difference here is that we pass FirstService and FirstFactory string into our controller definition.</p>
-      <p>This is dependency injection at work. Angular looks for providers which we've defined by those names.</p>
-      <p>Just below our controller we see a service definition. Noticed that it isn't very different from controllers we've created.</p>
-      <p>Our FirstService returns an object which has a getUser member. Services are essentially singltons which return data which they create or already hav access to.</p>
-      <p>The object services return is created once and return however many times it's called.</p>
-      <p>Keep in mind that this doesn't mean services return the same data when its functions are called... only that the object they return is created once.</p>
-      <p>Factories are different in that Angular creates a new object to return each time. If invoked twice, each object returned will be a new instance.</p>
-    </aside>
+  <aside class="notes">
+    <p>The JavaScript portion is much more interesting.</p>
 
-  </section>
+    <p>Here we define our controller. The big difference here is that we pass FirstService and FirstFactory string into
+      our controller definition.</p>
 
-  <!--  -------------------------------------------------------------------------->
-  <section data-transition="linear" data-transition-speed="medium">
-    <h2>Simple Service and Factory</h2>
-    <h4>Output</h4>
-    <!--@formatter:off-->
+    <p>This is dependency injection at work. Angular looks for providers which we've defined by those names.</p>
+
+    <p>Just below our controller we see a service definition. Noticed that it isn't very different from controllers
+      we've created.</p>
+
+    <p>Our FirstService returns an object which has a getUser member. Services are essentially singltons which return
+      data which they create or already hav access to.</p>
+
+    <p>The object services return is created once and return however many times it's called.</p>
+
+    <p>Keep in mind that this doesn't mean services return the same data when its functions are called... only that the
+      object they return is created once.</p>
+
+    <p>Factories are different in that Angular creates a new object to return each time. If invoked twice, each object
+      returned will be a new instance.</p>
+  </aside>
+
+</section>
+
+<!--  -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Simple Service and Factory</h2>
+  <h4>Output</h4>
+  <!--@formatter:off-->
     <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
   Get User from Service: {"firstName":"Garry","lastName":" Kasparov"}
 
@@ -1443,35 +1438,44 @@
     </code></pre>
     <!--@formatter:on-->
 
-    <aside class="notes">
-      <p>Here's the output from our Service and Factory program.</p>
-    </aside>
-  </section>
+  <aside class="notes">
+    <p>Here's the output from our Service and Factory program.</p>
+  </aside>
+</section>
 
-  <!-- So what then is a provider? -------------------------------------------------------------------------->
-  <section data-transition="linear" data-transition-speed="medium">
-    <h2>So what then is a provider?</h2>
-    <ul>
-      <li>A service is a module which returns a single instance of an object</li>
-      <li>A factory is a module which returns a new object each time it's referenced</li>
-      <li>So what then is a provider?</li>
-      <li class="fragment">A provider is a module which is more comprehensive than a service or factory and can be configured before it's made available</li>
-    </ul>
-    <aside class="notes">
-      <p>We discussed that Angular has providers, services and factories</p>
-      <p>A provider is a module which Angular users to implement services and factories.</p>
-      <p>When you ask Angular to create a service it essentially uses a provider to create it. The same for when you requested a factory.</p>
-      <p>So, services and factories are nothing more than syntax sugar (i.e. simpler versions) of providers.</p>
-      <p>Providers themselves are more powerful in that they can behave differently than a service or factory and can be configured before they're made available.</p>
-      <p>Let's take a look at creating and configuring our own provider.</p>
-    </aside>
-  </section>
+<!-- So what then is a provider? -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>So what then is a provider?</h2>
+  <ul>
+    <li>A service is a module which returns a single instance of an object</li>
+    <li>A factory is a module which returns a new object each time it's referenced</li>
+    <li>So what then is a provider?</li>
+    <li class="fragment">A provider is a module which is more comprehensive than a service or factory and can be
+      configured before it's made available
+    </li>
+  </ul>
+  <aside class="notes">
+    <p>We discussed that Angular has providers, services and factories</p>
 
-  <!-- StartDate Provider -------------------------------------------------------------------------->
-  <section data-transition="linear" data-transition-speed="medium">
-    <h2>StartDate Provider</h2>
-    <h4>HTML</h4>
-    <!--@formatter:off-->
+    <p>A provider is a module which Angular users to implement services and factories.</p>
+
+    <p>When you ask Angular to create a service it essentially uses a provider to create it. The same for when you
+      requested a factory.</p>
+
+    <p>So, services and factories are nothing more than syntax sugar (i.e. simpler versions) of providers.</p>
+
+    <p>Providers themselves are more powerful in that they can behave differently than a service or factory and can be
+      configured before they're made available.</p>
+
+    <p>Let's take a look at creating and configuring our own provider.</p>
+  </aside>
+</section>
+
+<!-- StartDate Provider -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>StartDate Provider</h2>
+  <h4>HTML</h4>
+  <!--@formatter:off-->
     <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
   &lt;!DOCTYPE html&gt;
   &lt;html ng-app=&quot;myApp&quot;&gt;
@@ -1488,19 +1492,19 @@
   &lt;/html&gt;
     </code></pre>
     <!--@formatter:on-->
-    <hr>
-    <small class="pre-bold pres-light-yellow-highlight">Source: /samplecode/Provider</small>
+  <hr>
+  <small class="pre-bold pres-light-yellow-highlight">Source: /samplecode/Provider</small>
 
-    <aside class="notes">
-      <p>The HTML itself isn't special.  Let's look at the app.js file.</p>
-    </aside>
-  </section>
+  <aside class="notes">
+    <p>The HTML itself isn't special. Let's look at the app.js file.</p>
+  </aside>
+</section>
 
-  <!-- StartDate Provider -------------------------------------------------------------------------->
-  <section data-transition="linear" data-transition-speed="medium">
-    <h2>StartDate Provider</h2>
-    <h4>JavaScript</h4>
-    <!--@formatter:off-->
+<!-- StartDate Provider -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>StartDate Provider</h2>
+  <h4>JavaScript</h4>
+  <!--@formatter:off-->
     <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
   angular.module('myApp', [])
     // controller
@@ -1531,51 +1535,185 @@
     });
     </code></pre>
     <!--@formatter:on-->
-    <hr>
-    <small class="pre-bold pres-light-yellow-highlight">Source: /samplecode/Provider</small>
+  <hr>
+  <small class="pre-bold pres-light-yellow-highlight">Source: /samplecode/Provider</small>
+  <aside class="notes">
+    <p>Ok, so we start with our controller. Notice that we're passing a string named StartDate</p>
+
+    <p>That's the name of our provider.</p>
+
+    <p>Within our controller we assign the value of calling the start date provider's getStartDate member to the
+      startDate data item on the current scope</p>
+
+    <p>Next we define our StartDate provider</p>
+
+    <p>Now this is different from how services and factories are setup. We assign an anonymous function to a $get object
+      member.</p>
+
+    <p>Like a factory the code assigns a function which returns a function. This allows for data members which are not
+      visible outside this clousure.</p>
+
+    <p>When a provider is injected into a controller Angular actually returns the $get function directly.</p>
+
+  </aside>
+</section>
+
+<!--  -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Which should I use?</h2>
+  <h4>So when do I use a service, factory or provider?</h4>
+  <ul>
+    <li><span class="pres-underline">Services</span>: login and user profile management services</li>
+    <li><span class="pres-underline">Factories</span>: birds for your angry birds clone</li>
+    <li><span class="pres-underline">Providers</span>: when services or factories just won't do</li>
+  </ul>
+  <aside class="notes">
+    <p>Services make good managers. Use them when you have data or functionality where a single instance of it will
+      surfice accross your application.
+    </p>
+
+    <p>A good example is login (signin) service. Another is a user profile management service.</p>
+
+    <p>Factories, when you need instances of objects. Think: birds for your angry birds clone.</p>
+
+    <p></p>
+
+    <p>Providers, when you need need control then a service or factory can provide or when you need control over
+      how it's created and configured.</p>
+  </aside>
+</section>
+</section>
+
+<!-- Angular best practices -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Best practices</h2>
+    <ul>
+      <li>Review online style guides and best practices</li>
+      <li>Project structure</li>
+      <li>HTML markup</li>
+    </ul>
+
+    <div class="fragment">
+      <p>So this:</p>
+      <!--@formatter:off-->
+      <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+    &lt;input class=&quot;ipt&quot; type=&quot;text&quot; placeholder=&quot;name&quot; require ng-model=&quot;user.name&quot;&gt;
+      </code></pre>
+      <!--@formatter:on-->
+    </div>
+
+    <div class="fragment">
+      <p>Rather than this:</p>
+      <!--@formatter:off-->
+      <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+    &lt;input require class=&quot;ipt&quot; ng-model=&quot;user.name&quot; placeholder=&quot;name&quot;&gt;
+      </code></pre>
+      <!--@formatter:on-->
+    </div>
+
     <aside class="notes">
-      <p>Ok, so we start with our controller. Notice that we're passing a string named StartDate</p>
+      <p>Let's look at a few angular best practices. Visit online style guides for more suggestions, and adapt a style
+        that meets your project's needs.</p>
 
-      <p>That's the name of our provider.</p>
+      <p>Angular offers lots of ways to organize your code, using directives, controllers, providers, filters, views,
+        and models.</p>
 
-      <p>Within our controller we assign the value of calling the start date provider's getStartDate member to the startDate data item on the current scope</p>
-      <p>Next we define our StartDate provider</p>
+      <p>Under your project's root folder make sure to create folders for each of the above.</p>
 
-      <p>Now this is different from how services and factories are setup.  We assign an anonymous function to a $get object member.</p>
-      <p>Like a factory the code assigns a function which returns a function.  This allows for data members which are not visible outside this clousure.</p>
-      <p>When a provider is injected into a controller Angular actually returns the $get function directly.</p>
+      <p>That is, organize your code into folders to hold your directives, controllers etc..</p>
 
+      <p>Another approach for code organization is to organize by application features. So all of the components
+        relating to user profiles might be stored in the same folder.</p>
+
+      <p>Whatever you do, make sure your project is locally organized and maintainable.</p>
+
+      <p>Keep your markup clean. Add Angular specific directives at the end of elements.</p>
+    </aside>
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Best practices (cont)</h2>
+    <ul>
+      <li>Angular uses the <span class="pres-bold pres-red">ng-</span> prefix as a namespace</li>
+      <li>It also prefixes the <span class="pres-bold pres-red">$</span> symbol in front of its providers, modules and
+        services
+      </li>
+      <li>Best to avoid using those in your own code</li>
+    </ul>
+    <aside class="notes">
+      <p>As we prepare to explore Angular code keep in mind that Angular prefixes its directives with the an NG
+        prefix.</p>
+
+      <p>People often ask why the ng prefix? The reason is because NG sounds more like Angular than AN or AG.</p>
+
+      <p>Also, and this is somewhat unfortunate for jQuery developers, Angular prefixes many of its services with a
+        dollar
+        symbol.</p>
+
+      <p>If I had to guess, and this may be a real strength... the $ symbol could stand for the S in service.</p>
+
+      <p>It should go without saying that you shouldn't use these in your own code.</p>
     </aside>
   </section>
 
   <!--  -------------------------------------------------------------------------->
   <section data-transition="linear" data-transition-speed="medium">
-    <h2>Which should I use?</h2>
-    <h4>So when do I use a service, factory or provider?</h4>
+    <h2>Best practices (cont)</h2>
     <ul>
-      <li><span class="pres-underline">Services</span>: login and user profile management services</li>
-      <li><span class="pres-underline">Factories</span>: birds for your angry birds clone</li>
-      <li><span class="pres-underline">Providers</span>: when services or factories just won't do</li>
+      <li>Use a consistent naming convention</li>
+      <li>Use JavaScript style naming conventions, after all this isn't Python or Ruby</li>
+      <li>Modules, Directives, Filers should be named lowerCamelCase</li>
+      <li>Controllers should be named UpperCamelCase</li>
+      <li>Factories should be named UpperCamelCase, but Services should be lowerCamelCase</li>
     </ul>
     <aside class="notes">
-      <p>Services make good managers. Use them when you have data or functionality where a single instance of it will
-        surfice accross your application.
-      </p>
-      <p>A good example is login (signin) service. Another is a user profile management service.</p>
-      <p>Factories, when you need instances of objects. Think: birds for your angry birds clone.</p>
-      <p></p>
-      <p>Providers, when you need need control then a service or factory can provide or when you need control over
-        how it's created and configured.</p>
-    </aside>
+      <p>You may have noticed a pattern in the above naming conventions.</p>
 
+      <p>Anything that involves a constructor has an uppercase letter prefix.</p>
+    </aside>
   </section>
 
+  <!--  -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Best practices (cont)</h2>
+    <ul>
+      <li>Automate your workflow using tools like Yeoman</li>
+      <li>Don't use globals. Resolve all dependencies using Dependency Injection</li>
+      <li>Do not pollute your $scope. Only add functions and variables that are being used in the templates</li>
+      <li>Do not pollute your controllers. Consider what functionality should be moved to services, factories and
+        providers
+      </li>
+    </ul>
+    <aside class="notes">
+      <p></p>
+    </aside>
+  </section>
 
-</section>
+  <!--  -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Best practices (cont)</h2>
+    <ul>
+      <li>Don't manipulate the DOM inside of your controllers</li>
+      <li>DOM manipulation should be done in directives</li>
+      <li>Don't scatter backend (AJAX) calls throughout your controllers, put those in services.</li>
+      <li>Prefer Angular providers over external ones.</li>
+    </ul>
+    <!--@formatter:off-->
+    <pre class="fragment"><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  $timeout instead of setTimeout
+  $interval instead of setInterval
+  $window instead of window
+  $document instead of document
+  $http instead of $.ajax
+    </code></pre>
+    <!--@formatter:on-->
 
-<!-- Angular best practices -------------------------------------------------------------------------->
-<section data-transition="linear" data-transition-speed="medium">
-  <h2>Best practices</h2>
+    <aside class="notes">
+      <p></p>
+    </aside>
+  </section>
+
 </section>
 
 <!-- Testing Angular -------------------------------------------------------------------------->
@@ -1583,7 +1721,7 @@
   <section data-transition="linear" data-transition-speed="medium">
     <h2>Testing Angular</h2>
     <ul>
-      <li>The Angular as its own test runner for Angular called Karma</li>
+      <li>Angular as its own test runner called Karma</li>
       <li>Karma executes Jasmine BDD style tests</li>
       <li>For end-to-end tests Angular has a tool called Protractor</li>
     </ul>
@@ -1610,13 +1748,6 @@
   </section>
 </section>
 
-<!-- How does Angular work? -------------------------------------------------------------------------->
-<section data-transition="linear" data-transition-speed="medium">
-  <h2>How does Angular work?</h2>
-
-  <p>TODO: Angular life cycle</p>
-</section>
-
 <!-- Tools for Angular -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
   <section>
@@ -1639,6 +1770,13 @@
   </section>
 </section>
 
+<!-- How does Angular work? -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>How does Angular work?</h2>
+
+  <p>TODO: Angular life cycle</p>
+</section>
+
 <!-- Thinking about your application in terms of Angular ----------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
   <section data-transition="linear" data-transition-speed="medium">
@@ -1648,23 +1786,6 @@
     <h2>Breaking down your application</h2>
     <ul>
       <li>Separate your app into modules, models, controllers, directives, and services</li>
-    </ul>
-  </section>
-</section>
-
-<!-- How large is Angular? -------------------------------------------------------------------------->
-<section data-transition="linear" data-transition-speed="medium">
-  <section data-transition="linear" data-transition-speed="medium">
-    <h2>How large is Angular?</h2>
-
-    <p>You might think all of Angular's features result in a large and bloated framework</p>
-  </section>
-  <section data-transition="linear" data-transition-speed="medium">
-    <h3>Actually, it weighs in at only...</h3>
-    <ul>
-      <li class="fragment">104K minified</li>
-      <li class="fragment">38K minified and gzipped</li>
-      <li class="fragment">To put this in context, jQuery 2.1.1 is 84K minified</li>
     </ul>
   </section>
 </section>
@@ -1844,16 +1965,31 @@
     </aside>
   </section>
 
-  <!-- Size of Core Team -------------------------------------------------------------------------->
+  <!-- How large is Angular? -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>How large is Angular?</h2>
+
+    <p>You might think all of Angular's features result in a large and bloated framework</p>
+  </section>
+  <section data-transition="linear" data-transition-speed="medium">
+    <h3>Actually, it weighs in at only...</h3>
+    <ul>
+      <li class="fragment">104K minified</li>
+      <li class="fragment">38K minified and gzipped</li>
+      <li class="fragment">To put this in context, jQuery 2.1.1 is 84K minified</li>
+    </ul>
+  </section>
+
+  <!-- The of Core Team -------------------------------------------------------------------------->
   <section>
-    <h3>Size of Core Team</h3>
+    <h3>The Core Team</h3>
     <ul>
       <li>By early 2014 Angular had 14 core members</li>
       <li>Google funds Angular development, the top ten contributors on Angular work at Google</li>
-      <li>However, many of the top contributors didn't start off as Google developers but were instead hired based on their contributions to Angular</li>
+      <li>However, many of the top contributors didn't start off as Google developers but were instead hired based on
+        their contributions to Angular
+      </li>
     </ul>
-    <p></p>
-    <p></p>
     <aside class="notes">
       <p>At the the 2014 Angular conference it was announced that there are 14 core members on the Angular team</p>
 
@@ -1901,19 +2037,33 @@
 <section data-transition="linear" data-transition-speed="medium">
   <h2>Select Resources</h2>
   <ul>
-    <li>Read the source:<br><small><a href="https://github.com/angular/angular.js">https://github.com/angular/angular.js</a>
-    </small></li>
+    <li>Read the source:<br>
+      <small><a href="https://github.com/angular/angular.js">https://github.com/angular/angular.js</a>
+      </small>
+    </li>
     <li>Community-driven best practices:<br>
-      <small><a href="https://github.com/mgechev/angularjs-style-guide">https://github.com/mgechev/angularjs-style-guide</a></small></li>
+      <small><a
+        href="https://github.com/mgechev/angularjs-style-guide">https://github.com/mgechev/angularjs-style-guide</a>
+      </small>
+    </li>
     <li>Find modules for AngularJS:<br>
-      <small><a href="http://ngmodules.org">http://ngmodules.org</a></small></li>
-    <li>AngularJS channel on YouTube: <small><a href="https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw">https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw</a></small></li>
-    <li>ng-conf 2014 conference videos: <small><a href="https://www.youtube.com/user/ngconfvideos">https://www.youtube.com/user/ngconfvideos</a></small></li>
+      <small><a href="http://ngmodules.org">http://ngmodules.org</a></small>
+    </li>
+    <li>AngularJS channel on YouTube:
+      <small><a href="https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw">https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw</a>
+      </small>
+    </li>
+    <li>ng-conf 2014 conference videos:
+      <small><a href="https://www.youtube.com/user/ngconfvideos">https://www.youtube.com/user/ngconfvideos</a></small>
+    </li>
   </ul>
   <aside class="notes">
     <p>There's a wealth of AngularJS resources available online.</p>
+
     <p>However, one resource which is surprisingly overlooked it the actual AngularJS source code.</p>
-    <p>Don't load the packaged version from a CDN, instead visit the angular project on GitHub and browse that code base.</p>
+
+    <p>Don't load the packaged version from a CDN, instead visit the angular project on GitHub and browse that code
+      base.</p>
 
   </aside>
 </section>
