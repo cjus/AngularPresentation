@@ -4,9 +4,21 @@ This is Yet Another AngularJS Presentation. I set out to create a simple present
 
 ![YAAP](images/YAAP__Yet_Another_AngularJS_Presentation.png)
 
-I played around with RevealJS a while back and felt it would be a perfect platform to for a presentation on Angular. Since the entire presentation runs in a web browser, I decided the presentation should include live Angular code. Heck, why not right?
+I played around with RevealJS a while back and felt it would be a perfect platform for a presentation on Angular. Since the entire presentation runs in a web browser, I decided the presentation should include live Angular code. Heck, why not right?
 
 The resulting presention doesn't cover all of Angular. In fact, I specifically left out a great deal in order to make the presentation mentally digestable.
+
+## Running locally
+
+You can run this presentation locally by installing Grunt.
+
+From within the project root install grunt:
+
+    $ npm install
+
+Then simply run grunt serve:
+
+    $ grunt serve
 
 ## This presentation is open sourced
 
