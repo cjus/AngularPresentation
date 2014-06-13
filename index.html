@@ -1801,6 +1801,7 @@
       <li>Run npm install on this project's root folder</li>
       <li>At the terminal prompt just run: ./karma_start.sh</li>
     </ul>
+
     <!--@formatter:off-->
     <pre class="fragment"><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
   ~/AngularPresentation$ ./karma_start.sh
@@ -1818,6 +1819,43 @@
     </aside>
   </section>
 
+  <!-- Broken tests -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Broken tests</h2>
+    <ul>
+      <li>Normally in start with tests that fail</li>
+      <li>Let's make sure we can detect failed tests</li>
+    </ul>
+
+    <!--@formatter:off-->
+    <pre class="fragment"><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  describe('Simple Test Spec', function() {
+    it('should just pass', function() {
+      expect(true).toBe(false);
+    });
+  });
+    </code></pre>
+    <!--@formatter:on-->
+
+    <!--@formatter:off-->
+    <pre class="fragment"><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  INFO [watcher]: Changed file "/Users/cjus/dev/cjus/AngularPresentation/samplecode/SimpleTest/simpleTestSpec.js".
+  Chrome 35.0.1916 (Mac OS X 10.9.3) Simple Test Spec should just pass FAILED
+          Expected true to be false.
+          Error: Expected true to be false.
+              at null.<anonymous> (/Users/cjus/dev/cjus/AngularPresentation/samplecode/SimpleTest/simpleTestSpec.js:3:18)
+  Chrome 35.0.1916 (Mac OS X 10.9.3): Executed 2 of 2 (1 FAILED) (0.032 secs / 0.028 secs)
+    </code></pre>
+    <!--@formatter:on-->
+    <aside class="notes">
+      <p>Normally in Test Drive Development we start with tests that fail</p>
+      <p>so let's let break our current test</p>
+      <p>To do this let's change our test expectation toBe false</p>
+      <p>The </p>
+    </aside>
+
+  </section>
+
 
   <!-- Dependency injection and testing -------------------------------------------------------------------------->
   <section data-transition="linear" data-transition-speed="medium">
@@ -1829,6 +1867,7 @@
       <p>One of the great benifits of Angular's Dependency Injection system is that it make testing your application
         possible.</p>
       <p>The reason is that we can can inject our modules into our Jasmine tests with very little work.</p>
+      <p>Let see how this works.</p>
     </aside>
   </section>
 
@@ -1842,7 +1881,7 @@
     var element
       , $scope;
 
-    //beforeEach(module(&quot;myApp&quot;));
+    beforeEach(module(&quot;myApp&quot;));
     beforeEach(inject(function($compile, $rootScope) {
       $scope = $rootScope;
       element = angular.element(&quot;&lt;div&gt;{{2 + 2}}&lt;/div&gt;&quot;);
@@ -1856,17 +1895,79 @@
   });
     </code></pre>
     <!--@formatter:on-->
-
+    <aside class="notes">
+      <p>Testing Angular involves introducing a few extra steps into our Jasmine files</p>
+      <p>In this particular test we're testing an angular expression within an element.</p>
+      <p>As we learned earlier, Angular expression and directives use the scope for data binding.</p>
+      <p>So in our test we need to inject the $rootScope, we also need to use the $compile provider to actually compile the expression.</p>
+      <p>For the most part, this sort of thing happens behind the scenes in Angular apps but we need to do it here because we're working in an isolated test context.</p>
+      <p>And finally, we need to run the $digest() member on the $scope object.  This is something we haven't seen in this presentation but essentially, it runs Angular's internal digest cycle where it updates bindings.</p>
+      <p>Notice that all of that is wrapped in an inject block and beforeEach.  The inject handles the dependency injection, in this case for the $compile and $rootScope providers.</p>
+      <p>The beforeEach ensures that this block is executed before each "it" behavioral test.</p>
+    </aside>
   </section>
 
   <!-- Testing controllers -------------------------------------------------------------------------->
   <section data-transition="linear" data-transition-speed="medium">
     <h3>Testing controllers</h3>
+    <!--@formatter:off-->
+    <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  describe('Angular controller test', function() {
+    var myController
+      , scope;
+
+    beforeEach(module("myApp"));
+    beforeEach(inject(function($controller, $rootScope) {
+      scope = $rootScope.$new();
+      myController = $controller('myController', {
+        $scope: scope
+      });
+    }));
+
+    it('should have a getDate function which returns a date', function() {
+      expect(scope.getDate()).not.toBeNull();
+    });
+  });
+    </code></pre>
+    <!--@formatter:on-->
+    <hr>
+    <small class="pre-bold pres-light-yellow-highlight">Source: samplecode/ControllerTest</small>
+
+    <aside class="notes">
+      <p>Here we have a spec for testing a controller which returns a date.</p>
+      <p>Here again we ensure that our myApp is available.</p>
+      <p>Next we inject the $controller and $rootScope providers in order to create a new scope for our controller</p>
+      <p>We create our controller using the $controller provider and assign our newly created scope.</p>
+      <p>Now we're ready to test that calling the getDate() member of the scope does indeed return something.</p>
+      <p>An important point to consider when testing controllers is that we're not really testing the controller but rather the changes it made to its scope.</p>
+    </aside>
   </section>
 
   <!-- Testing services -------------------------------------------------------------------------->
   <section data-transition="linear" data-transition-speed="medium">
     <h3>Testing services</h3>
+    <!--@formatter:off-->
+    <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  describe('Angular service test', function() {
+    var Base64Service;
+
+    beforeEach(module("myApp"));
+    beforeEach(inject(function(_Base64Service_) {
+      Base64Service = _Base64Service_;
+    }));
+
+    it('should correctly encode a known message', function() {
+      expect(Base64Service.encode('Hello from a simple controller!')).toBe('SGVsbG8lMjBmcm9tJTIwYSUyMHNpbXBsZSUyMGNvbnRyb2xsZXIlMjE=');
+    });
+  });
+    </code></pre>
+    <!--@formatter:on-->
+    <hr>
+    <small class="pre-bold pres-light-yellow-highlight">Source: samplecode/ServiceTest</small>
+    <aside class="notes">
+      <p>Testing services is straightforward.</p>
+      <p>We simply inject our service an test its members.</p>
+    </aside>
   </section>
 
   <!-- End to end testing using Protractor -------------------------------------------------------------------------->
