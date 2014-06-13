@@ -35,7 +35,7 @@ Yes, you too can be that cool! While it's far from [Minority Report](http://en.w
 
 ## This presentation is open sourced
 
-Feel free to fork the presentation and use it as the basis for sharing Angular with others. My own presentation notes are included, but feel free to add you own.
+Feel free to fork the presentation and use it as the basis for sharing Angular with others. My presentation notes are included, but feel free to add you own.
 
 If you'd like to contribute to this presentation simply fork it and issue a pull request.
 
