@@ -1730,26 +1730,51 @@
   <section data-transition="linear" data-transition-speed="medium">
     <h2>Testing with Angular</h2>
     <ul>
-      <li>Angular as its own test runner called Karma</li>
-      <li>Karma executes Jasmine BDD style tests</li>
+      <li>We can use Karma to test our Angular code</li>
+      <li>Install Karma from: http://karma-runner.github.io/</li>
+      <li>Karma can execute Jasmine BDD style tests</li>
       <li>For end-to-end tests Angular has a tool called Protractor</li>
     </ul>
     <aside class="notes">
-      <p>Angular as its own test runner called Karma.</p>
-
-      <p>You can add Karma to your own projects by...</p>
-
-      <p>Karma executes Jasmine BDD style tests</p>
-
+      <p>We can use Karma to test our Angular code</p>
+      <p>To use Karma in your own app follow the instructions on the Karma GitHub repo.</p>
+      <p>However, if you're running the tests included with this presentation then Karma will be installed when you run npm install.</p>
+      <p>Karma executes Jasmine BDD style tests and works with other testing frameworks like Mocha and QUnit.</p>
       <p>For end-to-end tests Angular has a tool called Protractor</p>
     </aside>
   </section>
 
   <!-- Structure of a Jasmine test -------------------------------------------------------------------------->
   <section data-transition="linear" data-transition-speed="medium">
-    <h2>Structure of a Jasmine test</h2>
+    <h2>Structure of a<br>Jasmine test</h2>
+    <!--@formatter:off-->
+    <pre><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  describe('Simple Test Spec', function() {
+    it('should just pass', function() {
+      expect(true).toBe(true);
+    });
+  });
+    </code></pre>
+    <!--@formatter:on-->
+    <ul>
+      <li>Just JavaScript which calls Jasmine test framework code</li>
+      <li>Each test has three main blocks: describe, it and expect</li>
+      <li class="fragment pres-blue">Learn more about Jasmine at http://jasmine.github.io</li>
+    </ul>
+
+    <hr>
+    <small class="pre-bold pres-light-yellow-highlight">Source: samplecode/SimpleTest/simpleTestSpec.js</small>
     <aside class="notes">
-      <p></p>
+      <p>A Jasmine test suite is called a Spec.</p>
+      <p>So, all of our tests will end in *Spec.js</p>
+      <p>This isn't absolutely necessary, but it's the default Karma setup for Jasmin.</p>
+      <p>Jasmine test consist of a describe block which </p>
+      <p>A Jasmine test is just a JavaScript file which calls functions in the Jasmine Testing Framework</p>
+      <p>A test file consist of three main blocks.</p>
+      <p>The describe block describes a test suite. Notice that it simply has two parameters. A text label and an anonymous function.</p>
+      <p>The describe block also encases one or more "it" sections.</p>
+      <p>An "it" block defines a behavior - that is what should behavior should the test exhibit</p>
+      <p>Inside of an "it" block you'll add one or more expecations.  That is what assertions should the behavior exhibit?</p>
     </aside>
   </section>
 
