@@ -1737,9 +1737,14 @@
     </ul>
     <aside class="notes">
       <p>We can use Karma to test our Angular code</p>
+
       <p>To use Karma in your own app follow the instructions on the Karma GitHub repo.</p>
-      <p>However, if you're running the tests included with this presentation then Karma will be installed when you run npm install.</p>
+
+      <p>However, if you're running the tests included with this presentation then Karma will be installed when you run
+        npm install.</p>
+
       <p>Karma executes Jasmine BDD style tests and works with other testing frameworks like Mocha and QUnit.</p>
+
       <p>For end-to-end tests Angular has a tool called Protractor</p>
     </aside>
   </section>
@@ -1766,24 +1771,64 @@
     <small class="pre-bold pres-light-yellow-highlight">Source: samplecode/SimpleTest/simpleTestSpec.js</small>
     <aside class="notes">
       <p>A Jasmine test suite is called a Spec.</p>
+
       <p>So, all of our tests will end in *Spec.js</p>
+
       <p>This isn't absolutely necessary, but it's the default Karma setup for Jasmin.</p>
+
       <p>Jasmine test consist of a describe block which </p>
+
       <p>A Jasmine test is just a JavaScript file which calls functions in the Jasmine Testing Framework</p>
+
       <p>A test file consist of three main blocks.</p>
-      <p>The describe block describes a test suite. Notice that it simply has two parameters. A text label and an anonymous function.</p>
+
+      <p>The describe block describes a test suite. Notice that it simply has two parameters. A text label and an
+        anonymous function.</p>
+
       <p>The describe block also encases one or more "it" sections.</p>
+
       <p>An "it" block defines a behavior - that is what should behavior should the test exhibit</p>
-      <p>Inside of an "it" block you'll add one or more expecations.  That is what assertions should the behavior exhibit?</p>
+
+      <p>Inside of an "it" block you'll add one or more expecations. That is what assertions should the behavior
+        exhibit?</p>
     </aside>
   </section>
+
+  <!-- Running our test -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Running our test</h2>
+    <ul>
+      <li>Run npm install on this project's root folder</li>
+      <li>At the terminal prompt just run: ./karma_start.sh</li>
+    </ul>
+    <!--@formatter:off-->
+    <pre class="fragment"><code contenteditable ng-non-bindable style="font-size: 18px; margin-top: 20px;">
+  ~/AngularPresentation$ ./karma_start.sh
+  INFO [karma]: Karma v0.12.16 server started at http://localhost:9876/
+  INFO [launcher]: Starting browser Chrome
+  INFO [Chrome 35.0.1916 (Mac OS X 10.9.3)]: Connected on socket Q47fUfs2QdHA5DNhAjXi with id 33541008
+  Chrome 35.0.1916 (Mac OS X 10.9.3): Executed 1 of 1 SUCCESS (0.01 secs / 0.008 secs)
+    </code></pre>
+    <!--@formatter:on-->
+    <aside class="notes">
+      <p>First make sure you've run npm install on this project's root folder</p>
+      <p>That will ensure that both Grunt and Karma are installed</p>
+      <p>At the terminal prompt just run: ./karma_start.sh</p>
+      <p>You should see output similar to the session shown here.</p>
+    </aside>
+  </section>
+
 
   <!-- Dependency injection and testing -------------------------------------------------------------------------->
   <section data-transition="linear" data-transition-speed="medium">
     <h2>Dependency injection and testing</h2>
+    <ul>
+      <li>DI makes testing Angular possible</li>
+    </ul>
     <aside class="notes">
       <p>One of the great benifits of Angular's Dependency Injection system is that it make testing your application
         possible.</p>
+      <p>The reason is that we can can inject our modules into our Jasmine tests with very little work.</p>
     </aside>
   </section>
 
