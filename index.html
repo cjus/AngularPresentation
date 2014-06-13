@@ -55,8 +55,9 @@
 <section data-transition="linear" data-transition-speed="medium">
   <h2>A few words about this presentation</h2>
   <ul>
-    <li>This is an interactive presentation built using Reveal.js, featuring AngularJS</li>
-    <li>Mobile and tablet friendly</li>
+    <li>We won't cover all of Angular - it's too big silly!</li>
+    <li>This is built using Reveal.js, featuring AngularJS</li>
+    <li>It's mobile and tablet friendly for your viewing pleasure</li>
     <li>Entire project available on Github</li>
     <li>The source code featured is stored within the project</li>
     <li>Issues with this presentation? Fix it and issue a pull request</li>
@@ -65,6 +66,8 @@
   <small class="pre-bold pres-light-yellow-highlight">Latest presentation at: <a
     href="http://github.com/cjus/AngularPresentation">http://github.com/cjus/AngularPresentation</a></small>
   <aside class="notes">
+    <p>This presentation doesn't all of Angular. In fact, many parts were intentionaly omitted for brevity.</p>
+
     <p>This is an interactive presentation, built on top of Reveal.js and featuring AngularJS.</p>
 
     <p>This presentation is built entirely on HTML, CSS and JavaScript to run inside of your web browser.</p>
@@ -142,6 +145,11 @@
       </li>
       <li>We'll cover many of Angular's features in this presentation</li>
     </ul>
+    <aside class="notes">
+      <p>Frameworks like Backbone, Ember and Knockout are great for building single page web applications.</p>
+      <p>However, as an application grows older frameworks require developers to do more work to keep their applications maintanable.</p>
+      <p></p>
+    </aside>
   </section>
 </section>
 
@@ -1525,10 +1533,41 @@
     <!--@formatter:on-->
     <hr>
     <small class="pre-bold pres-light-yellow-highlight">Source: /samplecode/Provider</small>
-
     <aside class="notes">
-      <p></p>
+      <p>Ok, so we start with our controller. Notice that we're passing a string named StartDate</p>
+
+      <p>That's the name of our provider.</p>
+
+      <p>Within our controller we assign the value of calling the start date provider's getStartDate member to the startDate data item on the current scope</p>
+      <p>Next we define our StartDate provider</p>
+
+      <p>Now this is different from how services and factories are setup.  We assign an anonymous function to a $get object member.</p>
+      <p>Like a factory the code assigns a function which returns a function.  This allows for data members which are not visible outside this clousure.</p>
+      <p>When a provider is injected into a controller Angular actually returns the $get function directly.</p>
+
     </aside>
+  </section>
+
+  <!--  -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Which should I use?</h2>
+    <h4>So when do I use a service, factory or provider?</h4>
+    <ul>
+      <li><span class="pres-underline">Services</span>: login and user profile management services</li>
+      <li><span class="pres-underline">Factories</span>: birds for your angry birds clone</li>
+      <li><span class="pres-underline">Providers</span>: when services or factories just won't do</li>
+    </ul>
+    <aside class="notes">
+      <p>Services make good managers. Use them when you have data or functionality where a single instance of it will
+        surfice accross your application.
+      </p>
+      <p>A good example is login (signin) service. Another is a user profile management service.</p>
+      <p>Factories, when you need instances of objects. Think: birds for your angry birds clone.</p>
+      <p></p>
+      <p>Providers, when you need need control then a service or factory can provide or when you need control over
+        how it's created and configured.</p>
+    </aside>
+
   </section>
 
 
@@ -1808,8 +1847,13 @@
   <!-- Size of Core Team -------------------------------------------------------------------------->
   <section>
     <h3>Size of Core Team</h3>
-
-    <p>By early 2014 Angular had 14 core members</p>
+    <ul>
+      <li>By early 2014 Angular had 14 core members</li>
+      <li>Google funds Angular development, the top ten contributors on Angular work at Google</li>
+      <li>However, many of the top contributors didn't start off as Google developers but were instead hired based on their contributions to Angular</li>
+    </ul>
+    <p></p>
+    <p></p>
     <aside class="notes">
       <p>At the the 2014 Angular conference it was announced that there are 14 core members on the Angular team</p>
 
@@ -1855,19 +1899,22 @@
 
 <!-- Resources -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
-  <h2>Resources</h2>
-
-  <!--https://github.com/angular/angular.js-->
-  <!--https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.js-->
-  <!--http://www.ng-newsletter.com/-->
-  <!--http://www.fse.guru/angularjs-code-guidelines-->
+  <h2>Select Resources</h2>
+  <ul>
+    <li>Read the source:<br><small><a href="https://github.com/angular/angular.js">https://github.com/angular/angular.js</a>
+    </small></li>
+    <li>Community-driven best practices:<br>
+      <small><a href="https://github.com/mgechev/angularjs-style-guide">https://github.com/mgechev/angularjs-style-guide</a></small></li>
+    <li>Find modules for AngularJS:<br>
+      <small><a href="http://ngmodules.org">http://ngmodules.org</a></small></li>
+    <li>AngularJS channel on YouTube: <small><a href="https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw">https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw</a></small></li>
+    <li>ng-conf 2014 conference videos: <small><a href="https://www.youtube.com/user/ngconfvideos">https://www.youtube.com/user/ngconfvideos</a></small></li>
+  </ul>
   <aside class="notes">
     <p>There's a wealth of AngularJS resources available online.</p>
-
     <p>However, one resource which is surprisingly overlooked it the actual AngularJS source code.</p>
+    <p>Don't load the packaged version from a CDN, instead visit the angular project on GitHub and browse that code base.</p>
 
-    <P>The uncompressed / unminified Angular codebase is well documented and a great source for learning what makes
-      Angular tick.</P>
   </aside>
 </section>
 
